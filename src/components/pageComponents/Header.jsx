@@ -17,7 +17,7 @@ export default function Header(){
             </a>
                 </div>
             <div className="flex md:order-2 space-x-4 md:max-lg:space-x-3 rtl:space-x-reverse">
-                <a href="#" class="text-white bg-gray-400 hover:bg-gray-600 focus:ring-4 focus:outline-none rounded-xl px-5 py-2.5 text-center hidden sm:inline">Реєстрація</a>
+                <a href="#" className="text-white bg-gray-400 hover:bg-gray-600 focus:ring-4 focus:outline-none rounded-xl px-5 py-2.5 text-center hidden sm:inline">Реєстрація</a>
                 <MainLinkButton url="" text="Увійти"/>
             </div>
             <div className="items-center justify-between hidden md:flex md:order-1" id="navbar-sticky">
