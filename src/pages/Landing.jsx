@@ -6,7 +6,7 @@ import VacancyLanding from "/src/components/VacancyLanding";
 export default function Landing() {
     return (
       <>
-        <SearchBar className="mt-20" />
+        <SearchBar />
         <div className="flex justify-between">
           <Heading text="Вакансії" />
           <ShowAllButton url="" />

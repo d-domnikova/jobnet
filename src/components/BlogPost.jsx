@@ -9,7 +9,7 @@ export default function BlogPost(props){
                 <div className="font-medium text-gray-500 pt-4">Name Surname</div>
             </div>
                 <a href="#" className="flex justify-center">
-                    <img className="px-5 py-2 rounded-t-lg max-h-[16em]" src="https://placehold.co/600x600" alt="BlogPost image" />
+                    <img className="px-5 py-2 rounded-t-lg max-h-[16em]" src="https://placehold.co/500x600" alt="BlogPost image" />
                 </a>
                 <div className="p-5">
                     <a href="#">
