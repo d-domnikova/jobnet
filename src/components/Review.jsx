@@ -95,3 +95,10 @@ const renderStars = (rating) => {
     }
     return stars;
 };
+
+Review.defaultProps = {
+    avatar: '', // Default empty avatar placeholder
+    username: 'Name Surname',
+    rating: 2.5, // Default no stars
+    comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin, turpis quis sagittis vehicula, sem erat semper mauris, nec rutrum turpis dui ac ante. Etiam imperdiet libero sed felis tempus scelerisque eget et urna. Vivamus fermentum tortor lorem, id luctus mauris volutpat efficitur. ', // Placeholder text
+};
