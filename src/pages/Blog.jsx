@@ -2,7 +2,7 @@ import BlogPost from "src/components/BlogPost.jsx";
 import Pagination from "src/components/pageComponents/Pagination.jsx";
 import Tag from "src/components/Tag.jsx";
 
-export default function Landing() {
+export default function Blog() {
     const containerStyle = {
         display: 'grid',
         gridTemplateColumns: 'repeat(3, auto)', // Three columns
