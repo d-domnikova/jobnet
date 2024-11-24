@@ -6,7 +6,7 @@ import Blog from "/src/pages/Blog";
 export default function App() {
   return (
     <>
-    <Landing />
+    <Landing/>
     </>
   )
 }
