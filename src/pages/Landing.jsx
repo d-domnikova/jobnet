@@ -9,7 +9,7 @@ export default function Landing() {
         <SearchBar />
         <div className="flex justify-between">
           <Heading text="Вакансії" />
-          <ShowAllButton url="" />
+          <ShowAllButton url="/vacancies" />
         </div>
         <div className="flex justify-center px-[5em] pb-12 grid gap-4 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
           <VacancyLanding />
@@ -18,7 +18,7 @@ export default function Landing() {
         </div>
         <div className="flex justify-between">
           <Heading text="Одноразові послуги" />
-          <ShowAllButton url="" />
+          <ShowAllButton url="/services" />
         </div>
         <div className="flex justify-center px-[5em] pb-12 grid gap-4 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
           <ServiceLanding />
@@ -36,7 +36,7 @@ export default function Landing() {
         </p>
         <div className="flex justify-between">
           <Heading text="Блог" />
-          <ShowAllButton url="" />
+          <ShowAllButton url="/blog" />
         </div>
         <div className="flex justify-center px-[5em] grid gap-4 grid-cols-1 sm:grid-cols-2 xl:grid-cols-4">
           <BlogPost />

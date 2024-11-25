@@ -7,7 +7,7 @@ import Inst from "../icons/Inst";
 
 export default function Service(props){
     return(
-        <div href="#" className="block max-w-4xl px-12 py-6 bg-white border border-gray-200 rounded-2xl shadow hover:bg-gray-100">
+        <a href={"/services/"+ props.id} className="block max-w-4xl px-12 py-6 bg-white border border-gray-200 rounded-2xl shadow hover:bg-gray-100">
           <div className="relative flex justify-between">
             <div>
                 <h5 className="mb-2 text-2xl pt-4 font-bold tracking-tight text-gray-900">Назва послуги</h5>
@@ -42,6 +42,6 @@ export default function Service(props){
           </div>
         </button>
       </div>
-      </div>
+      </a>
     )
 }

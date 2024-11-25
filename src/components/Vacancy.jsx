@@ -5,7 +5,7 @@ import Tag from "./Tag";
 
 export default function Vacancy(props){
     return(
-        <div href="#" className="block max-w-4xl px-10 py-4 bg-white border border-gray-200 rounded-3xl shadow hover:bg-gray-100">
+        <a href={"/vacancies/"+ props.id} className="block max-w-4xl px-10 py-4 bg-white border border-gray-200 rounded-3xl shadow hover:bg-gray-100">
         <div className="relative flex justify-between">
           <div>
             <h5 className="mb-2 text-xl sm:text-2xl pt-4 font-bold tracking-tight text-gray-900">Назва вакансії</h5>
@@ -37,6 +37,6 @@ export default function Vacancy(props){
         </button>
       </div>
 
-    </div>
+    </a>
   )
 }

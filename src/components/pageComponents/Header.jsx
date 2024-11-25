@@ -12,13 +12,13 @@ export default function Header(){
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
                     </svg>
                 </button>
-            <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
+            <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="logo.svg" className="md:h-10 h-12" alt="JobNet Logo"/>
                 <span className="self-center text-xl font-semibold whitespace-nowrap max-md:text-2xl xl:text-2xl hover:text-sky-600">JobNet</span>
             </a>
                 </div>
             <div className="flex md:order-2 space-x-4 md:max-lg:space-x-3 rtl:space-x-reverse">
-                <a href="#" className="text-white bg-gray-400 hover:bg-gray-600 focus:ring-4 focus:outline-none rounded-xl px-5 py-2.5 text-center hidden sm:inline">Реєстрація</a>
+                <a href="/signup" className="text-white bg-gray-400 hover:bg-gray-600 focus:ring-4 focus:outline-none rounded-xl px-5 py-2.5 text-center hidden sm:inline">Реєстрація</a>
                 <MainLinkButton url="" text="Увійти"/>
             </div>
             <div className="items-center justify-between hidden md:flex md:order-1" id="navbar-sticky">
@@ -33,13 +33,13 @@ export default function Header(){
                         <HeaderButtons text="Розмістити >" url="#"/>
                     </li>
                     <li className="text-center">
-                        <HeaderButtons text="Всі вакансії" url="#"/>
+                        <HeaderButtons text="Всі вакансії" url="/vacancies"/>
                     </li>
                     <li className="text-center">
-                        <HeaderButtons text="Всі послуги" url="#"/>
+                        <HeaderButtons text="Всі послуги" url="/services"/>
                     </li>
                     <li className="text-center">
-                        <HeaderButtons text="Блог" url="#"/>
+                        <HeaderButtons text="Блог" url="/blog"/>
                     </li>
                 </ul>
             </div>
