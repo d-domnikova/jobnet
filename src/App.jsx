@@ -9,8 +9,10 @@ import VacancyPage from "/src/pages/VacancyPage";
 import AllVacancies from "./pages/AllVacancies";
 import AllServices from "./pages/AllServices";
 import ServicePage from "./pages/ServicePage";
-import SignIn from "./components/modals/SignIn";
-import ReportForm from "./components/modals/ReportForm";
+// import SignIn from "./components/modals/SignIn";
+// import ReportForm from "./components/modals/ReportForm";
+import UserProfile from "src/pages/UserProfile";
+import PersonalInfo from "src/pages/PersonalInfo";
 
 export default function App() {
   return (
@@ -24,6 +26,8 @@ export default function App() {
       <Route path="/services/:id" element={<ServicePage />} />
       <Route path="/blog" element={<Blog />} />
       <Route path="/blog/:id" element={<Post />} />
+      <Route path="/userprofile" element={<UserProfile />}/>
+      <Route path="/personalinfo" element={<PersonalInfo/>}/>
       <Route path="*" element={<NoPage />} />
     </Routes>
   </>
