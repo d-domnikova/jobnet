@@ -3,7 +3,7 @@ import Tag from "./Tag";
 
 export default function VacancyLanding(props){
   return(
-    <div href="#" className="block max-w-md px-12 py-6 bg-white border border-gray-200 rounded-3xl shadow hover:bg-gray-100">
+    <a href={"/vacancies/"+ props.id} className="block max-w-md px-12 py-6 bg-white border border-gray-200 rounded-3xl shadow hover:bg-gray-100">
       <div className="flex justify-between">
         <div>
           <h5 className="mb-2 text-2xl pt-4 font-bold tracking-tight text-gray-900">Назва вакансії</h5>
@@ -23,6 +23,6 @@ export default function VacancyLanding(props){
         <Tag url="#" text="Назва тегу"/>
         <Tag url="#" text="Назва тегу"/>
       </div>
-    </div>
+    </a>
   )
 }
