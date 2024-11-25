@@ -1,7 +1,7 @@
 export default function Footer(){
     return(
-        <footer className="bg-white rounded-lg z-50 w-full">
-        <div className="w-full mx-auto p-4 md:py-8">
+        <footer className="bg-white rounded-lg w-full mt-16">
+        <div className="w-full mx-auto p-4 md:pb-8 pb-12">
             <div className="sm:flex sm:items-center sm:justify-between mx-4 my-6">
                 <ul className="flex flex-wrap items-center mb-6 font-medium text-gray-500 sm:mb-0">
                     <li>

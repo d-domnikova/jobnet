@@ -7,7 +7,7 @@ import Tag from "/src/components/Tag";
 
 export default function ServicePage(props){
     return(
-       <div className="mx-[5em] md:mx-[7em] max-w-4xl mt-36">
+       <div className="mx-[5em] md:mx-[7em] max-w-4xl">
        <a href="#" className="flex mx-4 font-semibold text-lg text-gray-500 hover:underline">Всі послуги</a>
        <div className="block px-12 py-6 bg-white border border-gray-200 rounded-3xl shadow mt-6 mb-10">
        <div className="flex justify-between">
@@ -52,11 +52,11 @@ export default function ServicePage(props){
       </div>
     </div>
 
-    <div class="relative block my-10 px-12 py-6 bg-white border border-gray-200 rounded-3xl shadow">
-        <h5 class="mb-2 text-2xl font-bold text-gray-900">Відгуки про фахівця</h5>
-        <a href="#" class="font-semibold hidden md:flex md:absolute md:right-20 md:top-7 md:text-lg rounded-xl md:-mt-3 px-6 py-1.5 border-2 border-sky-400 hover:bg-sky-200">Детальніше</a>
-        <p class="text-base/2 text-gray-600 mt-4 mb-10 md:mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin, turpis quis sagittis vehicula, sem erat semper mauris, nec rutrum turpis dui ac ante. Etiam imperdiet libero sed felis tempus scelerisque eget et urna. </p>
-        <a href="#" class="font-semibold absolute right-8 bottom-4 md:hidden rounded-xl px-6 py-1.5 border-2 border-sky-400 hover:bg-sky-200">Детальніше</a>
+    <div className="relative block px-12 py-6 bg-white border border-gray-200 rounded-3xl shadow">
+        <h5 className="mb-2 text-2xl font-bold text-gray-900">Відгуки про фахівця</h5>
+        <a href="#" className="font-semibold hidden md:flex md:absolute md:right-20 md:top-7 md:text-lg rounded-xl md:-mt-3 px-6 py-1.5 border-2 border-sky-400 hover:bg-sky-200">Детальніше</a>
+        <p className="text-base/2 text-gray-600 mt-4 mb-10 md:mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin, turpis quis sagittis vehicula, sem erat semper mauris, nec rutrum turpis dui ac ante. Etiam imperdiet libero sed felis tempus scelerisque eget et urna. </p>
+        <a href="#" className="font-semibold absolute right-8 bottom-4 md:hidden rounded-xl px-6 py-1.5 border-2 border-sky-400 hover:bg-sky-200">Детальніше</a>
     </div>
     </div>
   )

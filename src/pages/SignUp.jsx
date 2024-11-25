@@ -4,7 +4,7 @@ export default function SignUp(){
     return(
         <>
             <a href="#" className="absolute top-24 right-0 font-bold text-gray-500 hover:underline pt-4 pr-[4em] md:pr-[5em]">Зареєструватися як роботодавець/шукач роботи</a>
-            <form className="md:mx-[5em] mx-[4em] mt-40 mb-12">
+            <form className="md:mx-[5em] mx-[4em] mt-8">
                 <div className="grid gap-6 mb-6 md:grid-cols-2">
                     <FormField name="Ім'я" id="first_name" type="text" />
                     <FormField name="Прізвище" id="last_name" type="text"/>

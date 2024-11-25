@@ -38,7 +38,7 @@ export default function Landing() {
           <Heading text="Блог" />
           <ShowAllButton url="" />
         </div>
-        <div className="flex justify-center px-[5em] pb-12 grid gap-4 grid-cols-1 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="flex justify-center px-[5em] grid gap-4 grid-cols-1 sm:grid-cols-2 xl:grid-cols-4">
           <BlogPost />
           <BlogPost />
           <BlogPost />

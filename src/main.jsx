@@ -7,10 +7,12 @@ import './index.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-
+    <div className="flex flex-col min-h-screen">
     <Header />
-    <App />
-    <Footer />
-    
+      <div className="flex-grow">
+        <App />
+      </div>
+      <Footer />
+    </div>
   </StrictMode>,
 )

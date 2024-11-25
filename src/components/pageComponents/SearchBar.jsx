@@ -1,6 +1,6 @@
 export default function SearchBar(){
     return(      
-        <form className="max-w-3xl md:mx-auto mx-8 mt-36 mb-8">
+        <form className="max-w-3xl md:mx-auto mx-8 mb-8">
             <div className="flex">
                 <select id="type" className="flex-shrink-0 z-10 inline-flex items-center p-3 font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-s-2xl hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100">
                 <option value="Vacancies" selected>Вакансії</option>

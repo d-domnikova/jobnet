@@ -8,8 +8,7 @@ export default function Blog() {
         gridTemplateColumns: 'repeat(3, auto)', // Three columns
         gridTemplateRows: 'auto auto auto', // Three rows
         gap: '10px', // Spacing between divs
-        justifyContent: 'center', // Center content horizontally
-        marginTop: '200px'
+        justifyContent: 'center', // Center content horizontally   
     };
 
     const boxStyle = {

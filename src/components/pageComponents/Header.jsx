@@ -2,6 +2,7 @@ import MainLinkButton from "./MainLinkButton";
 
 export default function Header(){
     return(
+        <>
         <nav className="bg-white fixed w-full z-50 top-0 start-0 border-b border-gray-200 font-medium">
             <div className="max-w-screen-2xl flex items-center justify-between mx-auto md:max-lg:px-2 px-4 py-6">
                 <div className="flex space-x-4">
@@ -44,6 +45,8 @@ export default function Header(){
             </div>
             </div>
         </nav>
+        <div className="pt-36"></div>
+        </>
     )
 }
 

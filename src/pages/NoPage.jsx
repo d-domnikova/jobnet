@@ -3,9 +3,9 @@ import MainLinkButton from "/src/components/pageComponents/MainLinkButton";
 export default function NoPage() {
     return (
       <>
-        <main className="grid min-h-full place-items-center mx-[4em] mt-12 py-24 md:py-32">
+        <main className="grid min-h-full place-items-center mx-[4em] -mt-20 py-24 md:py-32">
           <div className="text-center">
-            <p className="text-xl font-semibold text-sky-400">404</p>
+            <p className="text-2xl font-semibold text-sky-400">404</p>
             <h1 className="mt-4 text-balance text-4xl font-semibold tracking-tight text-gray-900 md:text-6xl">
               Сторінка не знайдена
             </h1>
