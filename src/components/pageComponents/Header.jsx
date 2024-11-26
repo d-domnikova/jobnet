@@ -1,4 +1,4 @@
-import MainLinkButton from "./MainLinkButton";
+import SignIn from "../modals/SignIn";
 
 export default function Header(){
     return(
@@ -18,8 +18,8 @@ export default function Header(){
             </a>
                 </div>
             <div className="flex md:order-2 space-x-4 md:max-lg:space-x-3 rtl:space-x-reverse">
-                <a href="/signup" className="text-white bg-gray-400 hover:bg-gray-600 focus:ring-4 focus:outline-none rounded-xl px-5 py-2.5 text-center hidden sm:inline">Реєстрація</a>
-                <MainLinkButton url="" text="Увійти"/>
+                <a href="/signup/user" className="text-white bg-gray-400 hover:bg-gray-600 focus:ring-4 focus:outline-none rounded-xl px-5 py-2.5 text-center hidden sm:inline">Реєстрація</a>
+            <SignIn />
             </div>
             <div className="items-center justify-between hidden md:flex md:order-1" id="navbar-sticky">
                 <ul className="flex flex-col w-full lg:w-auto p-4 md:p-0 mt-4 border border-gray-100 rounded-lg space-x-7 xl:space-x-12 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">

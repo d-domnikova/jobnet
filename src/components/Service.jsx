@@ -1,5 +1,5 @@
 import HeartOutline from "../icons/HeartOutline";
-import Report from "../icons/Report";
+import ReportForm from "./modals/ReportForm";
 import Tag from "./Tag";
 import Telegram from "../icons/Telegram";
 import Viber from "../icons/Viber";
@@ -24,9 +24,7 @@ export default function Service(props){
                 </div>
           </div>
           <img className="p-5 rounded-t-lg max-h-[20em]" src="https://placehold.co/80x100" alt="Vacancy image" />
-          <button className="inline absolute top-0 -right-4 opacity-50 hover:bg-red-200">
-            <Report />
-          </button>
+          <ReportForm />
         </div>
         <p className="font-normal text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin, turpis quis sagittis vehicula, sem erat semper mauris, nec rutrum turpis dui ac ante. Etiam imperdiet libero sed felis tempus scelerisque eget et urna. Vivamus fermentum tortor lorem, id luctus mauris volutpat efficitur.</p>
         <div className="relative flex justify-between py-6">

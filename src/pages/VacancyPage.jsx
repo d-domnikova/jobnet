@@ -1,12 +1,12 @@
 import Verified from "../icons/Verified";
 import HeartOutline from "../icons/HeartOutline";
-import Report from "../icons/Report";
+import ReportForm from "../components/modals/ReportForm";
 import Tag from "/src/components/Tag";
 
 export default function VacancyPage(props){
     return(
        <div className="mx-[5em] md:mx-[7em] max-w-4xl">
-       <a href="#" className="flex mx-4 font-semibold text-lg text-gray-500 hover:underline">Всі вакансії</a>
+       <a href="/vacancies" className="flex mx-4 font-semibold text-lg text-gray-500 hover:underline">Всі вакансії</a>
        <div className="block px-12 py-6 bg-white border border-gray-200 rounded-3xl shadow mt-6 mb-10">
        <div className="flex justify-between">
           <div className="space-y-1.5">
@@ -19,11 +19,9 @@ export default function VacancyPage(props){
               </div>
           </div>
         </div>
-        <div className="relative">
+        <div className="relative z-10">
           <img className="p-5 rounded-t-lg max-h-[24em]" src="https://placehold.co/100x125" alt="Vacancy image" />
-          <button className="inline absolute top-0 -right-4 opacity-50 hover:bg-red-200">
-            <Report />
-          </button>
+          <ReportForm />
         </div>
       </div>
       <div className="max-w-xl grid gap-1 grid-cols-2 md:grid-cols-4">
