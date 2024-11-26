@@ -38,7 +38,7 @@ export default function App() {
       <Route path="/vacancies/:id" element={<VacancyPage />} />
       <Route path="/services/:id" element={<ServicePage />} />
       <Route path="/blog" element={<Blog />} />
-      <Route path="/blog/:id" element={<Post />} />
+      <Route path="/blog/:id  " element={<Post />} />
       <Route path="/userprofile" element={<UserProfile />}/>
       <Route path="/personalinfo" element={<PersonalInfo/>}/>
       <Route path="/personpage/:id" element={<PersonPage/>}/>

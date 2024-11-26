@@ -34,7 +34,7 @@ export default function Service(props){
         <Tag url="#" text="Назва тегу"/>
         <Tag url="#" text="Назва тегу"/>
       </div>
-      <button className="flex space-x-2 font-semibold md:text-lg absolute bottom-10 lg:bottom-6 right-0"><span className="hidden sm:flex">Зберігти</span> 
+      <button className="flex space-x-2 font-semibold md:text-lg absolute bottom-10 lg:bottom-6 right-0"><span className="hidden sm:flex">Зберігти</span>
           <div className="pl-2 pt-1">
             <HeartOutline color="#b2b2b2"/>
           </div>

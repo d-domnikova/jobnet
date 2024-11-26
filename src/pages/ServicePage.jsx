@@ -30,12 +30,15 @@ export default function ServicePage(props){
             </div>
             </div>
         </div>
-        <div className="relative">
-          <img className="p-5 rounded-t-lg max-h-[24em]" src="https://placehold.co/100x125" alt="Vacancy image" />
-          <ReportForm />
-        </div>
-      </div>
-      <div className="max-w-xl grid gap-1 grid-cols-2 md:grid-cols-4">
+           <div className="relative">
+               <a href={"/personpage/" + props.userid}>
+                   <img className="p-5 rounded-t-lg max-h-[24em]" src="https://placehold.co/100x125"
+                        alt="Vacancy image"/>
+               </a>
+                   <ReportForm/>
+           </div>
+       </div>
+           <div className="max-w-xl grid gap-1 grid-cols-2 md:grid-cols-4">
         <Tag url="#" text="Назва тегу"/>
         <Tag url="#" text="Назва тегу"/>
         <Tag url="#" text="Назва тегу"/>
