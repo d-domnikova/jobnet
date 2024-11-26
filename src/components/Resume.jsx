@@ -5,14 +5,14 @@ import Telegram from "../icons/Telegram";
 import Viber from "../icons/Viber";
 import Inst from "../icons/Inst";
 
-export default function Service(props){
+export default function Resume(props){
     return(
         <div className="block max-w-4xl px-12 py-6 bg-white border border-gray-200 rounded-2xl shadow hover:bg-gray-100">
           <div className="relative flex justify-between">
-            <a href={"/services/"+ props.id} className="block">
-                <h5 className="mb-2 text-2xl pt-4 font-bold tracking-tight text-gray-900 hover:underline">Назва послуги</h5>
-                <p className="font-semibold text-gray-900 py-1">120/год</p>
-                <p className="font-semibold text-gray-900 py-1 ">Ім'я Прізвище, Спеціалізація</p>
+            <a href={"/resumes/"+ props.id} className="block">
+                <h5 className="mb-2 text-2xl pt-4 font-bold tracking-tight text-gray-900 hover:underline">Назва посади</h5>
+                <p className="font-semibold text-gray-900 py-1 ">Ім'я Прізвище</p>
+                <p className="font-semibold text-gray-900 py-1 ">Освіта</p>
                 <p className="font-semibold text-gray-900 py-1">Місто, Область</p>
                 <div className="md:flex space-x-4">
                 <p className="font-semibold text-gray-900 py-1 pb-2">+380-000-000-00-00</p>

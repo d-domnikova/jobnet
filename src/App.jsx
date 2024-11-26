@@ -9,8 +9,8 @@ import VacancyPage from "/src/pages/VacancyPage";
 import AllVacancies from "./pages/AllVacancies";
 import AllServices from "./pages/AllServices";
 import ServicePage from "./pages/ServicePage";
-// import SignIn from "./components/modals/SignIn";
-// import ReportForm from "./components/modals/ReportForm";
+import AllResumes from "./pages/AllResumes";
+import ResumePage from "./pages/ResumePage";
 import UserProfile from "src/pages/UserProfile";
 import PersonalInfo from "src/pages/PersonalInfo";
 import PersonPage from "src/pages/PersonPage.jsx"
@@ -21,6 +21,9 @@ import UserServices from "src/pages/UserServices.jsx";
 import PersonalBlog from "src/pages/PersonalBlog.jsx";
 import CompanyProfile from "src/pages/CompanyProfile.jsx";
 import CreatedVacancies from "src/pages/CreatedVacancies.jsx";
+import VacancyForm from './pages/forms/VacancyForm';
+import ServiceForm from './pages/forms/ServiceForm';
+import ResumeForm from './pages/forms/ResumeForm';
 
 export default function App() {
   return (
@@ -30,6 +33,8 @@ export default function App() {
       <Route path='/signup/:role' element={<SignUp/>} />
       <Route path="/vacancies" element={<AllVacancies />} />
       <Route path="/services" element={<AllServices />} />
+      <Route path="/resumes" element={<AllResumes />} />
+      <Route path="/resumes/:id" element={<ResumePage />} />
       <Route path="/vacancies/:id" element={<VacancyPage />} />
       <Route path="/services/:id" element={<ServicePage />} />
       <Route path="/blog" element={<Blog />} />
@@ -45,6 +50,10 @@ export default function App() {
       <Route path="/personalblog/:id" element={<PersonalBlog/>}/>
       <Route path="/createdvacancies/:id" element={<CreatedVacancies/>}/>
       <Route path="*" element={<NoPage />} />
+
+      <Route path="/create/vacancy" element={<VacancyForm />} />
+      <Route path="/create/service" element={<ServiceForm />} />
+      <Route path="/create/resume" element={<ResumeForm />} />
     </Routes>
   </>
   )

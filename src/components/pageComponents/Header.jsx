@@ -1,3 +1,5 @@
+import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react'
+
 import SignIn from "../modals/SignIn";
 
 export default function Header(){
@@ -13,7 +15,7 @@ export default function Header(){
                     </svg>
                 </button>
             <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="logo.svg" className="md:h-10 h-12" alt="JobNet Logo"/>
+                <img src="/logo.svg" className="md:h-10 h-12" alt="JobNet Logo"/>
                 <span className="self-center text-xl font-semibold whitespace-nowrap max-md:text-2xl xl:text-2xl hover:text-sky-600">JobNet</span>
             </a>
                 </div>
@@ -29,8 +31,14 @@ export default function Header(){
                     <li className="md:max-lg:hidden text-center">
                         <HeaderButtons text="Додати послугу" url="#"/>
                     </li>
-                    <li className="lg:hidden text-center">
-                        <HeaderButtons text="Розмістити >" url="#"/>
+                    <li className='lg:hidden text-center'>
+                    <Popover className="relative">
+                        <PopoverButton> <HeaderButtons text="Розмістити >"/> </PopoverButton>
+                        <PopoverPanel anchor="bottom" className="flex flex-col bg-white text-center p-3 rounded-lg border-b border-gray-200 font-medium shadow space-y-3">
+                            <a href="#" className="mt-8 py-2 block text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-sky-600 border-b border-gray-200">Розмістити резюме</a>
+                            <a href="#" className="block text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-sky-600">Додати послугу</a>
+                        </PopoverPanel>
+                        </Popover>
                     </li>
                     <li className="text-center">
                         <HeaderButtons text="Всі вакансії" url="/vacancies"/>
@@ -52,6 +60,6 @@ export default function Header(){
 
 function HeaderButtons(props){
     return(
-        <a href={props.url} className="inline text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-sky-600">{props.text}</a>
+        <a href={props.url} className="inline text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-sky-600 text-medium">{props.text}</a>
     )
 }
