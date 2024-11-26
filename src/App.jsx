@@ -13,6 +13,7 @@ import ServicePage from "./pages/ServicePage";
 // import ReportForm from "./components/modals/ReportForm";
 import UserProfile from "src/pages/UserProfile";
 import PersonalInfo from "src/pages/PersonalInfo";
+import PersonPage from "src/pages/PersonPage.jsx"
 
 export default function App() {
   return (
@@ -28,6 +29,8 @@ export default function App() {
       <Route path="/blog/:id" element={<Post />} />
       <Route path="/userprofile" element={<UserProfile />}/>
       <Route path="/personalinfo" element={<PersonalInfo/>}/>
+      <Route path="/personpage/:id" element={<PersonPage/>}/>
+
       <Route path="*" element={<NoPage />} />
     </Routes>
   </>
