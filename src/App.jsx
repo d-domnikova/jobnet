@@ -15,6 +15,7 @@ import UserProfile from "src/pages/UserProfile";
 import PersonalInfo from "src/pages/PersonalInfo";
 import PersonPage from "src/pages/PersonPage.jsx"
 import CompanyPage from "src/pages/CompanyPage.jsx";
+import CompanyVacancies from "src/pages/CompanyVacancies.jsx";
 
 export default function App() {
   return (
@@ -32,6 +33,7 @@ export default function App() {
       <Route path="/personalinfo" element={<PersonalInfo/>}/>
       <Route path="/personpage/:id" element={<PersonPage/>}/>
       <Route path="/companypage/:id" element={<CompanyPage/>}/>
+      <Route path="/companyvacancies/:id" element={<CompanyVacancies/>}/>
       <Route path="*" element={<NoPage />} />
     </Routes>
   </>
