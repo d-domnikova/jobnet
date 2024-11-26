@@ -21,7 +21,7 @@ export default function App() {
   <>
     <Routes>
       <Route path="/" element={<Landing />} />
-      <Route path='/signup' element={<SignUp/>} />
+      <Route path='/signup/:role' element={<SignUp/>} />
       <Route path="/vacancies" element={<AllVacancies />} />
       <Route path="/services" element={<AllServices />} />
       <Route path="/vacancies/:id" element={<VacancyPage />} />
