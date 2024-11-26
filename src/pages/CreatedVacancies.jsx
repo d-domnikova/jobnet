@@ -2,7 +2,7 @@ import Vacancy from "src/components/Vacancy.jsx";
 import AddButton from "src/components/AddButton.jsx";
 
 
-const CompanyVacancies = () => {const vacancies = [
+const CreatedVacancies = () => {const vacancies = [
     { id: 1, title: "Vacancy 1", company: "Company 1", description: "Description 1" },
     { id: 2, title: "Vacancy 2", company: "Company 2", description: "Description 2" },
 ];
@@ -17,12 +17,12 @@ const CompanyVacancies = () => {const vacancies = [
 
     return (
         <div style={containerStyle}>
-                {vacancies.map((vacancy) => (
-                    <Vacancy key={vacancy.id} id={vacancy.id} title={vacancy.title} company={vacancy.company} description={vacancy.description} />
-                ))}
+            {vacancies.map((vacancy) => (
+                <Vacancy key={vacancy.id} id={vacancy.id} title={vacancy.title} company={vacancy.company} description={vacancy.description} />
+            ))}
             <AddButton/>
         </div>
     );
 };
 
-export default CompanyVacancies;
+export default CreatedVacancies;

@@ -16,6 +16,11 @@ import PersonalInfo from "src/pages/PersonalInfo";
 import PersonPage from "src/pages/PersonPage.jsx"
 import CompanyPage from "src/pages/CompanyPage.jsx";
 import CompanyVacancies from "src/pages/CompanyVacancies.jsx";
+import SavedVacancies from "src/pages/SavedVacancies.jsx";
+import UserServices from "src/pages/UserServices.jsx";
+import PersonalBlog from "src/pages/PersonalBlog.jsx";
+import CompanyProfile from "src/pages/CompanyProfile.jsx";
+import CreatedVacancies from "src/pages/CreatedVacancies.jsx";
 
 export default function App() {
   return (
@@ -33,7 +38,12 @@ export default function App() {
       <Route path="/personalinfo" element={<PersonalInfo/>}/>
       <Route path="/personpage/:id" element={<PersonPage/>}/>
       <Route path="/companypage/:id" element={<CompanyPage/>}/>
+      <Route path="/companyprofile/:id" element={<CompanyProfile/>}/>
       <Route path="/companyvacancies/:id" element={<CompanyVacancies/>}/>
+      <Route path="/savedvacancies/:id" element={<SavedVacancies/>}/>
+      <Route path="/userservices/:id" element={<UserServices/>}/>
+      <Route path="/personalblog/:id" element={<PersonalBlog/>}/>
+      <Route path="/createdvacancies/:id" element={<CreatedVacancies/>}/>
       <Route path="*" element={<NoPage />} />
     </Routes>
   </>
