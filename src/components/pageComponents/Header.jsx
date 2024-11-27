@@ -26,17 +26,17 @@ export default function Header(){
             <div className="items-center justify-between hidden md:flex md:order-1" id="navbar-sticky">
                 <ul className="flex flex-col w-full lg:w-auto p-4 md:p-0 mt-4 border border-gray-100 rounded-lg space-x-7 xl:space-x-12 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
                     <li className="md:max-lg:hidden text-center">
-                        <HeaderButtons text="Розмістити резюме" url="#"/>
+                        <HeaderButtons text="Розмістити резюме" url="/resume/create"/>
                     </li>
                     <li className="md:max-lg:hidden text-center">
-                        <HeaderButtons text="Додати послугу" url="#"/>
+                        <HeaderButtons text="Додати послугу" url="/service/create"/>
                     </li>
                     <li className='lg:hidden text-center'>
                     <Popover className="relative">
                         <PopoverButton> <HeaderButtons text="Розмістити >"/> </PopoverButton>
                         <PopoverPanel anchor="bottom" className="flex flex-col bg-white text-center p-3 rounded-lg border-b border-gray-200 font-medium shadow space-y-3">
-                            <a href="#" className="mt-8 py-2 block text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-sky-600 border-b border-gray-200">Розмістити резюме</a>
-                            <a href="#" className="block text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-sky-600">Додати послугу</a>
+                            <a href="/resume/create" className="mt-8 py-2 block text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-sky-600 border-b border-gray-200">Розмістити резюме</a>
+                            <a href="/service/create" className="block text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-sky-600">Додати послугу</a>
                         </PopoverPanel>
                         </Popover>
                     </li>

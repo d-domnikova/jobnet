@@ -2,16 +2,16 @@ import Tag from "./Tag";
 
 export default function ServiceLanding(props) {
     return (
-        <a href={"/services/" + props.id}
+        <div
            className="block max-w-md px-12 py-6 bg-white border border-gray-200 rounded-2xl shadow hover:bg-gray-100">
             <div className="flex justify-between">
-                <div>
-                    <h5 className="mb-2 text-2xl  pt-4  font-bold tracking-tight text-gray-900">Назва послуги</h5>
+                <a href={"/services/"+ props.id} >
+                    <h5 className="mb-2 text-2xl pt-4 font-bold tracking-tight text-gray-900 hover:underline">Назва послуги</h5>
                     <p className="font-semibold text-gray-900 py-1">120/год</p>
                     <p className="font-semibold text-gray-900 py-1 ">Ім'я Призвище, Спеціалізація</p>
                     <p className="font-semibold text-gray-900 py-1 pb-4">Місто, Область</p>
-                </div>
-                <a href={"/personpage/" + props.id}><img className="p-5 rounded-t-lg max-h-[20em]"
+                </a>
+                <a href={"/user/" + props.userId}><img className="p-5 rounded-t-lg max-h-[20em]"
                                                          src="https://placehold.co/80x100" alt="Vacancy image"/> </a>
             </div>
             <p className="font-normal text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
@@ -23,6 +23,6 @@ export default function ServiceLanding(props) {
                 <Tag url="#" text="Назва тегу"/>
                 <Tag url="#" text="Назва тегу"/>
             </div>
-        </a>
+        </div>
     )
 }

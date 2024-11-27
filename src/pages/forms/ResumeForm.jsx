@@ -1,11 +1,15 @@
+import { useParams } from "react-router-dom";
+
 import FormField from "/src/components/pageComponents/FormField";
 
 export default function ResumeForm(){
 
+    const { action } = useParams();
+
     return(
         <div className="bg-white mx-auto py-4 w-9/12 md:w-8/12 border rounded-3xl shadow">
-            <form className="md:mx-[3em] mx-[2em] mt-8 space-y-4" method="POST">
-            <h1 className="font-medium text-xl pb-2">Створення резюме</h1>
+            <form className="md:mx-[3em] mx-[2em] mt-8 space-y-4" method={action == "create" ? "POST" : "PUT"}>
+            <h1 className="font-medium text-xl pb-2">{action == "create" ? "Створення" : "Редагування"} резюме</h1>
             <div className="grid gap-6 mb-6 md:grid-cols-2">
                     <FormField name="Ім'я" id="FirstName" type="text"/>
                     <FormField name="Прізвище" id="LastName" type="text"/> 

@@ -1,11 +1,19 @@
 import HeartOutline from "../icons/HeartOutline";
 import ReportForm from "./modals/ReportForm";
 import Tag from "./Tag";
+import Edit from "../icons/Edit";
 import Telegram from "../icons/Telegram";
 import Viber from "../icons/Viber";
 import Inst from "../icons/Inst";
+import DeleteModal from "./modals/DeleteModal";
+
+import { useLocation, useParams } from "react-router-dom";
 
 export default function Service(props){
+
+  const { id } = useParams();
+  const location = useLocation();
+
     return(
         <div className="block max-w-4xl px-12 py-6 bg-white border border-gray-200 rounded-2xl shadow hover:bg-gray-100">
           <div className="relative flex justify-between">
@@ -24,7 +32,9 @@ export default function Service(props){
                 </div>
           </a>
           <img className="p-5 rounded-t-lg max-h-[20em]" src="https://placehold.co/80x100" alt="Vacancy image" />
-          <ReportForm />
+          {location.pathname == "/user/my-services" ? <DeleteModal/> : <ReportForm />}
+          <a href={"/service/edit/" + props.id} className={location.pathname == "/user/my-services" ? "hover:bg-sky-200 rounded-full p-2 inline absolute -top-2 right-8" : "hidden"}>
+          <Edit /></a>
         </div>
         <p className="font-normal text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin, turpis quis sagittis vehicula, sem erat semper mauris, nec rutrum turpis dui ac ante. Etiam imperdiet libero sed felis tempus scelerisque eget et urna. Vivamus fermentum tortor lorem, id luctus mauris volutpat efficitur.</p>
         <div className="relative flex justify-between py-6">
