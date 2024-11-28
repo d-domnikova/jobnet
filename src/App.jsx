@@ -25,6 +25,8 @@ import VacancyForm from './pages/forms/VacancyForm';
 import ServiceForm from './pages/forms/ServiceForm';
 import ResumeForm from './pages/forms/ResumeForm';
 import Header from './components/pageComponents/Header';
+import SavedCVs from "src/pages/SavedCVs.jsx";
+import CreatedCVs from "src/pages/CreatedCVs.jsx";
 
 export default function App() {
 
@@ -71,7 +73,7 @@ export default function App() {
             <Route path="/user/saved-vacancies" element={<SavedVacancies/>}/>
             <Route path="/user/my-services" element={<UserServices/>}/>
             <Route path="/user/my-blog" element={<PersonalBlog/>}/>
-            {/*<Route path="/user/my-resumes" element={<NameOfUserResumePage/>}/> */} 
+            <Route path="/user/my-resumes" element={<CreatedCVs/>}/>
 
             <Route path="/company" element={<Navigate to="/"/>}/>
             <Route path="/company/my-vacancies" element={<Navigate to="/"/>}/>
@@ -94,11 +96,13 @@ export default function App() {
             <Route path="/company" element={<CompanyProfile/>}/>
             <Route path="/company/my-vacancies" element={<CreatedVacancies/>}/>
             <Route path="/company/my-blog" element={<PersonalBlog/>}/>
-            {/*<Route path="/company/saved-resumes" element={<NameOfSavedResumePage/>}/> */} 
+            <Route path="/company/saved-resumes" element={<SavedCVs/>}/>
 
             <Route path="/vacancy/:action/:id?" element={<VacancyForm />} />
             <Route path="/service/:action/:id?" element={<Navigate to="/"/>} />
             <Route path="/resume/:action/:id?" element={<Navigate to="/"/>} />
+            <Route path="/blog/:action/:id?" element={<BlogPostForm />} />
+
           </>
       )}
       </Route>
