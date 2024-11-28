@@ -4,11 +4,10 @@ import Edit from "../icons/Edit";
 import ReportForm from "./modals/ReportForm";
 import DeleteModal from "./modals/DeleteModal";
 
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 export default function BlogPost(props){
 
-    const { id } = useParams();
     const location = useLocation();
 
     return(
@@ -18,7 +17,7 @@ export default function BlogPost(props){
                 <div className="mt-2 w-8 h-8 bg-gray-300 rounded-full hover:ring"></div>
                 <div className="font-medium text-gray-500 pt-2 hover:underline">Name Surname</div>
             </a>
-                {location.pathname == "/company/my-blog" || location.pathname == "/user/my-blog" ? <DeleteModal/> : <ReportForm />}
+                {location.pathname == "/company/my-blog" || location.pathname == "/user/my-blog" ? <DeleteModal id={props.id} type="пост" obj="posts" name={props.title}/> : <ReportForm id={props.id}/>}
                 <a href={"/post/edit/" + props.id} className={location.pathname == "/company/my-blog" || location.pathname == "/user/my-blog" ? "hover:bg-sky-200 rounded-full p-2 inline absolute -top-2 right-6" : "hidden"}>
                 <Edit /></a>
                 </div>
@@ -29,11 +28,11 @@ export default function BlogPost(props){
                     <div className="flex items-center space-x-6 mt-6 mb-2">
                     <div className="space-x-1 flex">
                         <HeartOutline color="#b2b2b2" />
-                        <span classNameName="text-gray-500">123</span>
+                        <span className="text-gray-500">123</span>
                     </div>
                     <div className="space-x-1 flex">
                         <Comments color="#b2b2b2" />
-                    <span classNameName="text-gray-500">123</span>
+                    <span className="text-gray-500">123</span>
                     </div>
             </div>
         </div>

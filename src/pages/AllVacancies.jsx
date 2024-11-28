@@ -7,7 +7,33 @@ import Checkbox from '../components/pageComponents/Checkbox';
 import MobileSort from "../components/modals/MobileSort";
 import MobileFilter from '../components/modals/MobileFilter';
 
-export default function AllVacancies(){
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+
+const AllVacancies = () => {
+    const [vacancies, setVacancies] = useState([]);
+    const [categories, setCategories] = useState([]);
+
+    useEffect(() => {
+       axios.get('https://localhost:6969/api/categories')
+       .then(response => {
+            console.log(response.data);
+            setCategories(response.data);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+
+        axios.get('https://localhost:6969/api/jobs')
+        .then(response => {
+             console.log(response.data);
+             setVacancies(response.data);
+         })
+         .catch(error => {
+             console.error(error);
+         });
+    }, []);
+
     return (
         <>
             <SearchBar />
@@ -31,12 +57,8 @@ export default function AllVacancies(){
                     <FormField id="min" type="number" name="Від" className="pb-4 flex items-center space-x-3"/>
                     <FormField id="max" type="number" name="До" className="pb-4 flex items-center space-x-3"/>
                 <p className="max-w-2xl text-lg py-4 font-semibold">Категорія</p>
-                    <Checkbox />
-                    <Checkbox />
-                    <Checkbox />
-                    <Checkbox />
-                    <Checkbox />
-                    <Checkbox />
+                { categories.map(category => 
+                        ( <Checkbox id={category.id} name={category.categoryName} /> ))}
                 <p className="max-w-2xl text-lg py-4 font-semibold">Особливості</p>
                     <Checkbox id="without-expetience" name="Без досвіду"/>
                     <Checkbox id="without-cv" name="Без резюме"/>
@@ -47,10 +69,9 @@ export default function AllVacancies(){
                 </form>
             </div>  
             <div className="grid grid-cols-1 gap-6 justify-right md:basis-2/3">
-                <Vacancy />
-                <Vacancy />
-                <Vacancy />
-                <Vacancy />
+                {vacancies.map((vacancy) => (
+                    <Vacancy id={vacancy.id} title={vacancy.title} salary={vacancy.salary} location={vacancy.location} description={vacancy.description} />
+                ))}
             </div>  
             </div>
             <div className="m-auto flex justify-between">
@@ -59,3 +80,5 @@ export default function AllVacancies(){
         </>
     )
 }
+
+export default AllVacancies;

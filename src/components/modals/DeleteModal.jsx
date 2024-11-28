@@ -1,12 +1,26 @@
-'use client'
-
 import { useState } from 'react'
 import { Dialog, DialogBackdrop, DialogPanel } from '@headlessui/react'
+import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 import DeleteIcon from '../../icons/DeleteIcon'
 
 export default function DeleteModal(props) {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+  const type = props.obj;
+
+  const handleClick = (id) => {
+      axios.delete(`https://localhost:6969/api/${type}/${id}`)
+      .then(response => {
+        console.log(response + `Deleted from ${type} with ID ${id}`);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+      setOpen(false);
+      {type === "jobs" ? navigate("/company/my-vacancies") : navigate(`/user/my-${type}`)} {/*Без урахування навігації до сторінки свого блогу. Дороблю*/}
+  }
 
   return (
     <>
@@ -34,11 +48,11 @@ export default function DeleteModal(props) {
                 </div>
                 <div className="mt-2 px-5">
                     <p className="text-gray-700">
-                      Ви впевнені, що хочете видалити послугу {props.serviceName}? Ця дія не може бути скасувана.
+                      Ви впевнені, що хочете видалити {props.type} {props.name}? Ця дія не може бути скасована.
                     </p>
                   </div>
             <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-              <button type="button" onClick={() => setOpen(false)}
+              <button type="button" onClick={() => handleClick(props.id)}
                 className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto">
                 Видалити
               </button>

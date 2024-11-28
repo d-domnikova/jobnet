@@ -2,12 +2,38 @@ import Resume from '../components/Resume';
 import Pagination from '../components/pageComponents/Pagination';
 import SearchBar from "/src/components/pageComponents/SearchBar";
 import SortBar from "/src/components/pageComponents/SortBar";
-import FormField from "/src/components/pageComponents/FormField";
 import Checkbox from '../components/pageComponents/Checkbox';
 import MobileSort from "../components/modals/MobileSort";
 import MobileFilter from '../components/modals/MobileFilter';
 
-export default function AllVacancies(){
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+
+export default function AllResumes(){
+
+    const [categories, setCategories] = useState([]);
+    const [resumes, setResumes] = useState([]);
+
+    useEffect(() => {
+       axios.get('https://localhost:6969/api/categories')
+       .then(response => {
+            console.log(response.data);
+            setCategories(response.data);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+
+        axios.get('https://localhost:6969/api/resumes')
+        .then(response => {
+             console.log(response.data);
+             setResumes(response.data);
+         })
+         .catch(error => {
+             console.error(error);
+         });
+    }, []);
+    
     return (
         <>
             <SearchBar />
@@ -25,12 +51,8 @@ export default function AllVacancies(){
             <div className="hidden md:flex lg:pl-[2em] xl:pl-[8em] overflow-y-auto">
                 <form>
                 <p className="max-w-2xl text-lg py-4 font-semibold">Категорія</p>
-                    <Checkbox />
-                    <Checkbox />
-                    <Checkbox />
-                    <Checkbox />
-                    <Checkbox />
-                    <Checkbox />
+                { categories.map(category => 
+                        ( <Checkbox id={category.id} name={category.categoryName} /> ))}
                     <p className="max-w-2xl text-lg py-4 font-semibold">Місто</p>
                     <Checkbox id="dnipro" name="Дніпро"/>
                     <Checkbox id="kyiv" name="Київ"/>
@@ -42,10 +64,9 @@ export default function AllVacancies(){
                 </form>
             </div>  
             <div className="grid grid-cols-1 gap-6 justify-right md:basis-2/3">
-                <Resume />
-                <Resume />
-                <Resume />
-                <Resume />
+                {resumes.map((resume) => (
+                    <Resume id={resume.id} />
+                ))}
             </div>  
             </div>
             <div className="m-auto flex justify-between">
