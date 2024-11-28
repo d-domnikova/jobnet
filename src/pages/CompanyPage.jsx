@@ -104,15 +104,15 @@ const CompanyPage = ({
             </div>
             {/* Buttons */}
             <div style={buttonsContainerStyle}>
-                <button style={buttonStyle}>
+                <button style={buttonStyle} onClick={website}>
                     <span style={{marginRight: '20px'}}><Info width={'40px'} height={'40px'}/></span>
                     Про компанію
                 </button>
-                <button style={buttonStyle}>
+                <button style={buttonStyle} onClick="/company/:id/vacancies">
                     <span style={{marginRight: '20px'}}><VacancyIcon width={'50px'} height={'50px'}/></span>
                     Вакансії
                 </button>
-                <button style={buttonStyle}>
+                <button style={buttonStyle} onClick="/company/:id/blog" >
                     <span style={{marginRight: '20px'}}><BlogIcon width={'40px'} height={'40px'}/></span>
                     Блог
                 </button>

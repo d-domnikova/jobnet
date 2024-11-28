@@ -138,15 +138,15 @@ const UserProfilePage = ({
 
                 {/* Buttons Section */}
                 <div style={buttonContainerStyle}>
-                    <button style={buttonStyle} onClick={onResumeClick}>
+                    <button style={buttonStyle} onClick="/user/:id/resumes">
                         <span style={{marginRight: '20px'}}><CVIcon/></span>
                         Резюме
                     </button>
-                    <button style={buttonStyle} onClick={onServicesClick}>
+                    <button style={buttonStyle} onClick="/user/:id/services">
                         <span style={{marginRight: '20px'}}><ServiceIcon style={{marginRight: '20px'}}/></span>
                         Послуги
                     </button>
-                    <button style={buttonStyle} onClick={onBlogClick}>
+                    <button style={buttonStyle} onClick="/user/:id/blog">
                         <span style={{marginRight: '20px'}}><BlogIcon style={{marginRight: '20px'}}/></span>
                         Блог
                     </button>
@@ -188,9 +188,6 @@ UserProfilePage.defaultProps = {
     region: "Область",
     phone: "+000-000-00-00",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec volutpat cursus ex sit amet lobortis. Nulla malesuada ullamcorper leo, ac porttitor dui tempor mattis. Nullam malesuada nibh non urna mollis egestas nec scelerisque arcu. Cras volutpat diam nec sem mattis, in varius dolor congue. Vivamus sollicitudin sodales ultrices. Nulla luctus ultricies mi, vitae gravida magna .In erat lacus, facilisis et nulla ut, luctus ornare orci. Aliquam hendrerit lacus ligula, sed hendrerit purus tempor eget. ",
-    onResumeClick: () => console.log("Resume clicked"),
-    onServicesClick: () => console.log("Services clicked"),
-    onBlogClick: () => console.log("Blog clicked"),
 
     review: [
 

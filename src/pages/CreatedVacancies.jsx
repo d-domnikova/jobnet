@@ -20,7 +20,7 @@ const CreatedVacancies = () => {const vacancies = [
             {vacancies.map((vacancy) => (
                 <Vacancy key={vacancy.id} id={vacancy.id} title={vacancy.title} company={vacancy.company} description={vacancy.description} />
             ))}
-            <AddButton/>
+            <AddButton onClick="/vacancy/:action/:id?"/>
         </div>
     );
 };

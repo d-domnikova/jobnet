@@ -20,7 +20,6 @@ const CompanyVacancies = () => {const vacancies = [
                 {vacancies.map((vacancy) => (
                     <Vacancy key={vacancy.id} id={vacancy.id} title={vacancy.title} company={vacancy.company} description={vacancy.description} />
                 ))}
-            <AddButton/>
         </div>
     );
 };
