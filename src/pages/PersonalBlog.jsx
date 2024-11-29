@@ -58,7 +58,7 @@ export default function PersonalBlog() {
     return (
         <div style={containerStyle}>
             <div style={{...boxStyle, ...div1Style}}>
-                <AddButton width={'100%'} height={'100%'}/>
+                <AddButton width={'100%'} height={'100%'} onClick="/blog/:action/:id?"/>
             </div>
             <div style={{...boxStyle, ...div2Style}}><BlogPost/></div>
             <div style={{...boxStyle, ...div3Style}}>

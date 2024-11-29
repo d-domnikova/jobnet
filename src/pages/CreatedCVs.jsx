@@ -1,4 +1,5 @@
 import Resume from "src/components/Resume.jsx";
+import AddButton from "src/components/AddButton.jsx";
 
 
 const SavedCVs = () => {
@@ -12,11 +13,14 @@ const SavedCVs = () => {
     };
 
     return (
-        <div style={containerStyle}>
-            {resumes.map((resume) => (
-                <Resume key={resume.id} id={resume.id} title={resume.title} username={resume.username}
-                        description={resume.description}/>
-            ))}
+        <div>
+            <div style={containerStyle}>
+                {resumes.map((resume) => (
+                    <Resume key={resume.id} id={resume.id} title={resume.title} uername={resume.username}
+                            description={resume.description}/>
+                ))}
+            </div>
+            <AddButton onClick="/resume/:action/:id?"/>
         </div>
     );
 };

@@ -19,7 +19,7 @@ const UserServices = () => {const services = [
             {services.map((service) => (
                 <Service key={service.id} id={service.id} title={service.title} company={service.company} description={service.description} />
             ))}
-            <AddButton/>
+            <AddButton onClick="/service/:action/:id?"/>
         </div>
     );
 };
