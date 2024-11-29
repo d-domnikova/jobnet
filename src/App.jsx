@@ -29,6 +29,7 @@ import SavedCVs from "src/pages/SavedCVs.jsx";
 import CreatedCVs from "src/pages/CreatedCVs.jsx";
 import ModeratorMain from "src/pages/ModeratorMain.jsx";
 import PostForm from "src/pages/forms/PostForm.jsx";
+import UserCVs from "src/pages/UserCVs.jsx";
 
 export default function App() {
 
@@ -59,7 +60,7 @@ export default function App() {
       <Route path="/user/:id" element={<PersonPage/>}/>
       <Route path="/user/:id/services" element={<UserServices/>}/>
       <Route path="/user/:id/blog" element={<PersonalBlog/>}/>
-      {/*<Route path="/user/:id/resumes" element={<NameOfUserResumePage/>}/> */} 
+      <Route path="/user/:id/resumes" element={<UserCVs/>}/>
 
       <Route path="/company/:id" element={<CompanyPage/>}/>
       <Route path="/company/:id/vacancies" element={<CompanyVacancies/>}/>
