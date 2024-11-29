@@ -27,6 +27,8 @@ import ResumeForm from './pages/forms/ResumeForm';
 import Header from './components/pageComponents/Header';
 import SavedCVs from "src/pages/SavedCVs.jsx";
 import CreatedCVs from "src/pages/CreatedCVs.jsx";
+import ModeratorMain from "src/pages/ModeratorMain.jsx";
+import PostForm from "src/pages/forms/PostForm.jsx";
 
 export default function App() {
 
@@ -101,7 +103,9 @@ export default function App() {
             <Route path="/vacancy/:action/:id?" element={<VacancyForm />} />
             <Route path="/service/:action/:id?" element={<Navigate to="/"/>} />
             <Route path="/resume/:action/:id?" element={<Navigate to="/"/>} />
-            <Route path="/blog/:action/:id?" element={<BlogPostForm />} />
+            <Route path="/blog/:action/:id?" element={<PostForm />} />
+
+            <Route path="/moderator/main" element={<ModeratorMain/>}/>
 
           </>
       )}
