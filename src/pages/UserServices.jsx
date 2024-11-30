@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import Service from "src/components/Service.jsx";
 import AddButton from "src/components/AddButton.jsx";
@@ -30,6 +30,10 @@ const UserServices = () => {
         padding: "20px",
     };
 
+    const buttonStyle = {
+        display:  (localStorage.getItem("userId"))  === services.at(0).userId ? "block" : "none",
+    }
+
     return (
         <div style={containerStyle}>
             {loading ? (
@@ -47,7 +51,9 @@ const UserServices = () => {
                     />
                 ))
             )}
-            <AddButton onClick="/service/:action/:id?"/>
+            <div style={buttonStyle}>
+                <AddButton onClick="/service/:action/:id?"/>
+            </div>
         </div>
     );
 };
