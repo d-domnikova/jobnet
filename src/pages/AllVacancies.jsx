@@ -17,7 +17,6 @@ const AllVacancies = () => {
     useEffect(() => {
        axios.get('https://localhost:6969/api/categories')
        .then(response => {
-            console.log(response.data);
             setCategories(response.data);
         })
         .catch(error => {
@@ -26,7 +25,6 @@ const AllVacancies = () => {
 
         axios.get('https://localhost:6969/api/jobs')
         .then(response => {
-             console.log(response.data);
              setVacancies(response.data);
          })
          .catch(error => {
@@ -40,11 +38,11 @@ const AllVacancies = () => {
             <div className="mx-[5em] flex justify-between mb-3">
                 <p className="max-w-2xl lg:text-2xl text-xl md:ml-[12em] xl:ml-[20em] py-3 md:py-6 font-semibold">Перегляд вакансій</p>
                 <div className="flex md:hidden space-x-6">
-                    <MobileSort />
+                    <MobileSort data={vacancies} method={setVacancies}/>
                     <MobileFilter />
                 </div>
                 <div className="hidden md:flex py-6 xl:pr-16">
-                    <SortBar />
+                    <SortBar data={vacancies} method={setVacancies}/>
                 </div>
             </div>
             <div className="mx-[5em] flex justify-between">
@@ -58,7 +56,8 @@ const AllVacancies = () => {
                     <FormField id="max" type="number" name="До" className="pb-4 flex items-center space-x-3"/>
                 <p className="max-w-2xl text-lg py-4 font-semibold">Категорія</p>
                 { categories.map(category => 
-                        ( <Checkbox id={category.id} name={category.categoryName} /> ))}
+                        ( <Checkbox key={category.id} 
+                                    id={category.id} name={category.categoryName} /> ))}
                 <p className="max-w-2xl text-lg py-4 font-semibold">Особливості</p>
                     <Checkbox id="without-expetience" name="Без досвіду"/>
                     <Checkbox id="without-cv" name="Без резюме"/>
@@ -70,7 +69,8 @@ const AllVacancies = () => {
             </div>  
             <div className="grid grid-cols-1 gap-6 justify-right md:basis-2/3">
                 {vacancies.map((vacancy) => (
-                    <Vacancy id={vacancy.id} title={vacancy.title} salary={vacancy.salary} location={vacancy.location} description={vacancy.description} />
+                    <Vacancy key={vacancy.id} 
+                             id={vacancy.id} title={vacancy.title} salary={vacancy.salary} location={vacancy.location} description={`${vacancy.description.slice(0, 330)}...`} />
                 ))}
             </div>  
             </div>

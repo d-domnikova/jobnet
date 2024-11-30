@@ -18,7 +18,6 @@ export default function AllServices(){
     useEffect(() => {
        axios.get('https://localhost:6969/api/categories')
        .then(response => {
-            console.log(response.data);
             setCategories(response.data);
         })
         .catch(error => {
@@ -27,7 +26,6 @@ export default function AllServices(){
 
         axios.get('https://localhost:6969/api/services')
         .then(response => {
-             console.log(response.data);
              setServices(response.data);
          })
          .catch(error => {
@@ -41,11 +39,11 @@ export default function AllServices(){
             <div className="mx-[5em] flex justify-between mb-3">
                 <p className="max-w-2xl lg:text-2xl text-xl md:ml-[12em] xl:ml-[20em] py-3 md:py-6 font-semibold">Перегляд послуг</p>
                 <div className="flex md:hidden space-x-1">
-                    <MobileSort />
+                    <MobileSort data={services} method={setServices}/>
                     <MobileFilter />
                 </div>
                 <div className="hidden md:flex py-6 xl:pr-16">
-                    <SortBar />
+                    <SortBar data={services} method={setServices}/>
                 </div>
             </div>
             <div className="mx-[5em] flex justify-between">
@@ -56,7 +54,7 @@ export default function AllServices(){
                     <FormField id="max" type="number" name="До" className="pb-4 flex items-center space-x-3"/>
                 <p className="max-w-2xl text-lg py-4 font-semibold">Категорія</p>
                 { categories.map(category => 
-                        ( <Checkbox id={category.id} name={category.categoryName} /> ))}
+                        ( <Checkbox key={category.id} id={category.id} name={category.categoryName} /> ))}
                 <p className="max-w-2xl text-lg py-4 font-semibold">Особливості</p>
                     <Checkbox id="part-time" name="Віддалена робота"/>
                 <button type="submit" className="mt-6 text-white bg-sky-400 hover:bg-sky-600 focus:ring-4 focus:outline-none focus:ring-sky-300 font-medium rounded-lg w-full sm:w-auto px-5 py-2.5 text-center">Застосувати фільтри</button>
@@ -64,7 +62,8 @@ export default function AllServices(){
             </div>  
             <div className="grid grid-cols-1 gap-6 justify-right md:basis-2/3">
                 {services.map((service) => (
-                    <Service id={service.id} serviceName={service.serviceName} price={service.price} location={service.location} description={service.description} />
+                    <Service key={service.id} 
+                        id={service.id} serviceName={service.serviceName} price={service.price} location={service.location} description={`${service.description.slice(0, 330)}...`} />
                 ))}
             </div>  
             </div>

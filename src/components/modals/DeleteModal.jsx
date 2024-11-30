@@ -19,7 +19,17 @@ export default function DeleteModal(props) {
         console.error(error);
       });
       setOpen(false);
-      {type === "jobs" ? navigate("/company/my-vacancies") : navigate(`/user/my-${type}`)} {/*Без урахування навігації до сторінки свого блогу. Дороблю*/}
+      switch(type) {
+        case "posts":
+          localStorage.getItem("userRole") === "User" && navigate("/user/my-blog");
+          localStorage.getItem("userRole") === "Company" && navigate("/company/my-blog")
+          break;
+        case "jobs":
+          navigate("/company/my-vacancies") ;
+          break;
+        default:
+          navigate(`/user/my-${type}`)
+      }
   }
 
   return (

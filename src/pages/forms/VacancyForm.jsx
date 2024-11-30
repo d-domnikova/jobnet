@@ -45,9 +45,9 @@ export default function VacancyForm(){
             categoryId: vacancy.categoryId,
             userId: localStorage.getItem("userId")
           };
-        axios.post("https://localhost:6969/api/jobs", userData).then((response) => {
-            navigate("/vacancy/" + response.data.id)
-          });  
+        axios.post("https://localhost:6969/api/jobs", userData).then(
+            navigate("/company/my-vacancies/")
+          );  
         }
 
         if(action === "edit") {
@@ -71,10 +71,9 @@ export default function VacancyForm(){
                 location: `${vacancy.city}, ${vacancy.region}`,
                 categoryId: vacancy.categoryId
               };
-            axios.put(`https://localhost:6969/api/jobs/${id}`, userData).then((response) => {
-                console.log(response.data);
-                navigate("/vacancy/" + response.data.id)
-              });  
+            axios.put(`https://localhost:6969/api/jobs/${id}`, userData).then(
+                navigate(`/vacancies/${id}`)
+              );  
             }
 
     return(

@@ -43,9 +43,9 @@ const handleSubmit = (e) => {
         description: service.description,
         price: service.price
       };
-    axios.post("https://localhost:6969/api/services", userData).then((response) => {
-        navigate("/service/" + response.data.id)
-      });  
+    axios.post("https://localhost:6969/api/services", userData).then(
+        navigate("/user/my-services/")
+      );  
     }
 
     if(action === "edit") {
@@ -69,10 +69,9 @@ const handleSubmit = (e) => {
             description: service.description,
             price: service.price
           };
-        axios.put(`https://localhost:6969/api/services/${id}`, userData).then((response) => {
-            console.log(response.data);
-            navigate("/service/" + response.data.id)
-          });  
+        axios.put(`https://localhost:6969/api/services/${id}`, userData).then(
+            navigate(`/services/${id}`)
+          );  
         }
 
     return(
