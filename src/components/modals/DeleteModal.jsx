@@ -11,7 +11,8 @@ export default function DeleteModal(props) {
   const type = props.obj;
 
   const handleClick = (id) => {
-      axios.delete(`https://localhost:6969/api/${type}/${id}`)
+      axios.delete(`https://localhost:6969/api/${type}/${id}`, 
+          { headers: {"Authorization" : `Bearer ${localStorage.getItem('token')}`}})
       .then(response => {
         console.log(response + `Deleted from ${type} with ID ${id}`);
       })

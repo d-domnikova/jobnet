@@ -19,21 +19,25 @@ export default function VacancyPage(){
   useEffect(() => {
      axios.get(`https://localhost:6969/api/jobs/${id}`)
      .then(response => {
-          setVacancy(response.data);
+          axios.get(`https://localhost:6969/api/users/${response.data.userId}`)
+          .then(response => {
+            setCompanyName(response.data.firstName); });
+            setVacancy(response.data);
       })
       .catch(error => {
           console.error(error);
       });
-      
-      axios.get(`https://localhost:6969/api/users/${vacancy.userId}`)
-      .then(response => {
-           setCompanyName(response.data.firstName);
-       })
-       .catch(error => {
-           console.error(error);
-       });
   }, []);
-
+  
+  const saveVacancy = (id) =>{
+    const data = {
+      employerId: localStorage.getItem("userId"),
+      jobId: id
+    };
+    axios.post("https://localhost:6969/api/SavedJob", data, 
+        { headers: {"Authorization" : `Bearer ${localStorage.getItem('token')}`}}).then();  
+  }
+  
     return(
        <div className="mx-[5em] md:mx-[7em] max-w-4xl">
        <a href="/vacancies" className="flex mx-4 font-semibold text-lg text-gray-500 hover:underline">
@@ -79,11 +83,11 @@ export default function VacancyPage(){
       <p className="text-gray-600 mt-4">{vacancy.description}</p>
       <div className="flex space-x-6 py-6">
       <button className="text-white text-lg bg-sky-400 hover:bg-sky-600 focus:ring-4 focus:outline-none focus:ring-sky-300 font-medium rounded-xl px-5 text-center">Відгукнутися</button>
-      <button className="flex font-semibold md:text-lg rounded-xl px-3 py-2.5 hover:bg-gray-200"><span className="hidden md:flex">Зберігти</span> 
+      {localStorage.getItem("userRole") === "User" && (<button onClick={() => saveVacancy(vacancy.id)} className="flex font-semibold md:text-lg rounded-xl px-3 py-2.5 hover:bg-gray-200"><span className="hidden md:flex">Зберігти</span> 
           <div className="md:pl-3 md:pt-1">
             <HeartOutline />
           </div>
-        </button>
+        </button>)}
       </div>
     </div>
 

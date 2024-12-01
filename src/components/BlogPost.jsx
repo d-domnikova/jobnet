@@ -17,9 +17,12 @@ export default function BlogPost(props){
                 <div className="mt-2 w-8 h-8 bg-gray-300 rounded-full hover:ring"></div>
                 <div className="font-medium text-gray-500 pt-2 hover:underline">Name Surname</div>
             </a>
-                {location.pathname == "/company/my-blog" || location.pathname == "/user/my-blog" ? <DeleteModal id={props.id} type="пост" obj="posts" name={props.title}/> : <ReportForm id={props.id}/>}
-                <a href={"/post/edit/" + props.id} className={location.pathname == "/company/my-blog" || location.pathname == "/user/my-blog" ? "hover:bg-sky-200 rounded-full p-2 inline absolute -top-2 right-6" : "hidden"}>
-                <Edit /></a>
+                {location.pathname == "/company/my-blog" || location.pathname == "/user/my-blog" ? 
+                    <>
+                        <DeleteModal id={props.id} type="пост" obj="posts" name={props.title}/>
+                        <a href={"/post/edit/" + props.id} className="hover:bg-sky-200 rounded-full p-2 inline absolute -top-2 right-6">
+                        <Edit /></a>
+                    </> : <ReportForm id={props.id}/>}
                 </div>
                 <a href={"/blog/"+ props.id}>
                     <img className="block py-2 mx-auto rounded-t-lg max-h-[16em]" src="https://placehold.co/500x600" alt="BlogPost image" />

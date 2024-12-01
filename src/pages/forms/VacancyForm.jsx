@@ -45,8 +45,9 @@ export default function VacancyForm(){
             categoryId: vacancy.categoryId,
             userId: localStorage.getItem("userId")
           };
-        axios.post("https://localhost:6969/api/jobs", userData).then(
-            navigate("/company/my-vacancies/")
+        axios.post("https://localhost:6969/api/jobs", userData, 
+            { headers: {"Authorization" : `Bearer ${localStorage.getItem('token')}`}}).then(
+                navigate("/company/my-vacancies/")
           );  
         }
 
@@ -71,8 +72,9 @@ export default function VacancyForm(){
                 location: `${vacancy.city}, ${vacancy.region}`,
                 categoryId: vacancy.categoryId
               };
-            axios.put(`https://localhost:6969/api/jobs/${id}`, userData).then(
-                navigate(`/vacancies/${id}`)
+            axios.put(`https://localhost:6969/api/jobs/${id}`, userData, 
+                { headers: {"Authorization" : `Bearer ${localStorage.getItem('token')}`}}).then(
+                    navigate(`/vacancies/${id}`)
               );  
             }
 
@@ -109,7 +111,7 @@ export default function VacancyForm(){
                     <label className="block mb-2 font-medium text-gray-900">Опис вакансії:</label>
                     <textarea name="description" value={vacancy.description} onChange={handleChange} rows="30" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-sky-500 focus:border-sky-500" placeholder="Write your thoughts here..."></textarea>
                 </div>
-                <button type="submit" className="text-white bg-sky-400 hover:bg-sky-600 focus:ring-4 focus:outline-none focus:ring-sky-300 font-medium rounded-lg w-full sm:w-auto px-10 py-2.5 text-center">Створити</button>
+                <button type="submit" className="text-white bg-sky-400 hover:bg-sky-600 focus:ring-4 focus:outline-none focus:ring-sky-300 font-medium rounded-lg w-full sm:w-auto px-10 py-2.5 text-center">{action === "create" ? "Створити" : "Оновити"}</button>
             </form>
         </div>
     )

@@ -6,10 +6,20 @@ import ReportForm from "./modals/ReportForm";
 import DeleteModal from "./modals/DeleteModal";
 
 import { useLocation } from "react-router-dom";
+import axios from 'axios';
 
 export default function Vacancy(props){
 
   const location = useLocation();
+  
+  const saveVacancy = (id) =>{
+    const data = {
+      employerId: localStorage.getItem("userId"),
+      jobId: id
+    };
+    axios.post("https://localhost:6969/api/SavedJob", data, 
+      { headers: {"Authorization" : `Bearer ${localStorage.getItem('token')}`}}).then();  
+  }
 
     return(
         <div className="block max-w-4xl h-fit px-10 py-4 bg-white border border-gray-200 rounded-3xl shadow hover:bg-gray-100">
@@ -19,16 +29,19 @@ export default function Vacancy(props){
             <p className="font-semibold sm:text-lg text-gray-900 py-1">{props.salary} грн</p>
             <p className="font-semibold sm:text-lg text-gray-900 py-1">{props.location}</p>
             <div className="flex space-x-2">
-              <p className="font-semibold sm:text-lg  text-gray-900 py-1 pb-4">{props.firstName} {props.lastName}</p>
+              <p className="font-semibold sm:text-lg  text-gray-900 py-1 pb-4">{props.companyName}</p>
               <div className="pt-2 sm:pt-2.5">
               <Verified color="#38bdf8"/>
               </div>
           </div>
         </a>
           <img className="p-5 rounded-t-lg max-h-[20em]" src="https://placehold.co/80x100" alt="Vacancy image" />
-          {location.pathname == "/company/my-vacancies" ? <DeleteModal id={props.id} type="вакансію" obj="jobs" name={props.title}/> : <ReportForm id={props.id}/>}
-          <a href={"/vacancy/edit/" + props.id} className={location.pathname == "/company/my-vacancies" ? "hover:bg-sky-200 rounded-full p-2 inline absolute -top-2 right-8" : "hidden"}>
-          <Edit /></a>
+          {location.pathname == "/company/my-vacancies" ? 
+               <>
+                  <DeleteModal id={props.id} type="вакансію" obj="jobs" name={props.title}/>
+                  <a href={"/vacancy/edit/" + props.id} className={"hover:bg-sky-200 rounded-full p-2 inline absolute -top-2 right-8"}>
+                  <Edit /></a>
+               </>  : <ReportForm id={props.id}/>}
       </div>
       <p className="text-base/2 text-gray-600">{props.description}</p>
       <div className="relative flex justify-between py-6">
@@ -38,11 +51,11 @@ export default function Vacancy(props){
         <Tag url="#" text="Назва тегу"/>
         <Tag url="#" text="Назва тегу"/>
       </div>
-      <button className="flex space-x-2 font-semibold md:text-lg absolute bottom-10 lg:bottom-6 right-0"><span className="hidden sm:flex">Зберігти</span>
+      {localStorage.getItem("userRole") === "User" && (<button onClick={() => saveVacancy(props.id)} className="flex space-x-2 font-semibold md:text-lg absolute bottom-10 lg:bottom-6 right-0"><span className="hidden sm:flex">Зберігти</span>
           <div className="pl-2 pt-1">
             <HeartOutline color="#b2b2b2"/>
           </div>
-        </button>
+        </button>)}
       </div>
     </div>
   )

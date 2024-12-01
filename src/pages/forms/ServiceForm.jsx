@@ -43,8 +43,9 @@ const handleSubmit = (e) => {
         description: service.description,
         price: service.price
       };
-    axios.post("https://localhost:6969/api/services", userData).then(
-        navigate("/user/my-services/")
+    axios.post("https://localhost:6969/api/services", userData, 
+        { headers: {"Authorization" : `Bearer ${localStorage.getItem('token')}`}}).then(
+            navigate("/user/my-services/")
       );  
     }
 
@@ -69,8 +70,9 @@ const handleSubmit = (e) => {
             description: service.description,
             price: service.price
           };
-        axios.put(`https://localhost:6969/api/services/${id}`, userData).then(
-            navigate(`/services/${id}`)
+        axios.put(`https://localhost:6969/api/services/${id}`, userData, 
+            { headers: {"Authorization" : `Bearer ${localStorage.getItem('token')}`}}).then(
+                navigate(`/services/${id}`)
           );  
         }
 
@@ -97,7 +99,7 @@ const handleSubmit = (e) => {
                     <label className="block mb-2 font-medium text-gray-900">Опис послуги:</label>
                     <textarea name="description" value={service.description} onChange={handleChange} rows="15" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-sky-500 focus:border-sky-500" placeholder="Write your thoughts here..."></textarea>
                 </div>
-                <button type="submit" className="text-white bg-sky-400 hover:bg-sky-600 focus:ring-4 focus:outline-none focus:ring-sky-300 font-medium rounded-lg w-full sm:w-auto px-10 py-2.5 text-center">Створити</button>
+                <button type="submit" className="text-white bg-sky-400 hover:bg-sky-600 focus:ring-4 focus:outline-none focus:ring-sky-300 font-medium rounded-lg w-full sm:w-auto px-10 py-2.5 text-center">{action === "create" ? "Створити" : "Оновити"}</button>
             </form>
         </div>
     )

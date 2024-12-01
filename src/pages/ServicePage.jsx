@@ -22,19 +22,14 @@ export default function ServicePage(){
   useEffect(() => {
      axios.get(`https://localhost:6969/api/services/${id}`)
      .then(response => {
+          axios.get(`https://localhost:6969/api/users/${response.data.userId}`)
+          .then(response => {
+            setUser(response.data); })
         setServices(response.data);
       })
       .catch(error => {
           console.error(error);
       });
-
-      axios.get(`https://localhost:6969/api/users/${service.userId}`)
-      .then(response => {
-        setUser(response.data);
-       })
-       .catch(error => {
-           console.error(error);
-       });
   }, []);
 
     return(
@@ -49,9 +44,9 @@ export default function ServicePage(){
        <div className="flex justify-between">
           <div className="md:space-y-1.5 mb-3">
             <h5 className="mb-2 md:text-3xl text-2xl pt-4 font-bold text-gray-900">{service.serviceName}</h5>
-            <p className="font-semibold md:text-xl text-gray-900 py-1">{service.price}</p>
+            <p className="font-semibold md:text-xl text-gray-900 py-1">{service.price} грн/год</p>
             <p className="font-semibold md:text-xl text-gray-900 py-1">{user.firstName} {user.lastName}</p>
-            <p className="font-semibold md:text-xl text-gray-900 py-1">{user.location}</p>
+            <p className="font-semibold md:text-xl text-gray-900 py-1">{user.address} область</p>
             <div className="md:flex space-x-4">
             <p className="font-semibold md:text-xl text-gray-900 py-1 pb-4">{user.phoneNumber}</p>
             <div className="md:pt-2 flex space-x-3">

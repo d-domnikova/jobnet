@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 
 export default function SignIn(){
     const [open, setOpen] = useState(false);
-    const navigate = useNavigate();
     
     const [login, setLoginData] = useState({
         email: "",
@@ -30,8 +29,11 @@ export default function SignIn(){
         axios.post("https://localhost:6969/api/Auth/login", userData).then((response) => {
             localStorage.setItem("token", response.data.token);
             localStorage.setItem("userId", response.data.user.id);
-            localStorage.setItem("userRoleId", response.data.user.roleId);
             localStorage.setItem("isLoggedIn", true);
+            axios.get(`https://localhost:6969/api/roles/${response.data.user.roleId}`, 
+                { headers: {"Authorization" : `Bearer ${localStorage.getItem('token')}`}}
+            ).then((response) => 
+                localStorage.setItem("userRole", response.data.roleName))
             setOpen(false);
           });
     }

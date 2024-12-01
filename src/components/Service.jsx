@@ -31,9 +31,13 @@ export default function Service(props){
                 </div>
           </a>
           <img className="p-5 rounded-t-lg max-h-[20em]" src="https://placehold.co/80x100" alt="Vacancy image" />
-          {location.pathname == "/user/my-services" ? <DeleteModal id={props.id} type="послугу" obj="services" name={props.serviceName}/> : <ReportForm id={props.id}/>}
-          <a href={"/service/edit/" + props.id} className={location.pathname == "/user/my-services" ? "hover:bg-sky-200 rounded-full p-2 inline absolute -top-2 right-8" : "hidden"}>
-          <Edit /></a>
+          {location.pathname == "/user/my-services" ? 
+            <>
+              <DeleteModal id={props.id} type="послугу" obj="services" name={props.serviceName}/>
+              <a href={"/service/edit/" + props.id} className="hover:bg-sky-200 rounded-full p-2 inline absolute -top-2 right-8">
+              <Edit /></a>
+            </> : <ReportForm id={props.id}/>}
+          
         </div>
         <p className="font-normal text-gray-700">{props.description}</p>
         <div className="relative flex justify-between py-6">
