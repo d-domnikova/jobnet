@@ -91,7 +91,7 @@ export default function App() {
                   <Route path="/vacancy/:action/:id?" element={<Navigate to="/"/>}/>
                   <Route path="/service/:action/:id?" element={<ServiceForm/>}/>
                   <Route path="/resume/:action/:id?" element={<ResumeForm/>}/>
-                  <Route path="/blog/:action/:id?" element={<PostForm />} />
+                  <Route path="/post/:action/:id?" element={<PostForm />} />
                 </>
               )};
 
@@ -112,7 +112,7 @@ export default function App() {
                   <Route path="/vacancy/:action/:id?" element={<VacancyForm/>}/>
                   <Route path="/service/:action/:id?" element={<Navigate to="/"/>}/>
                   <Route path="/resume/:action/:id?" element={<Navigate to="/"/>}/>
-                  <Route path="/blog/:action/:id?" element={<PostForm />} />
+                  <Route path="/post/:action/:id?" element={<PostForm />} />
                 </>
               )};
 

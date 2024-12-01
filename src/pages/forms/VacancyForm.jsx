@@ -94,7 +94,7 @@ export default function VacancyForm(){
                     <label className="block mb-2 font-medium text-gray-900">Категорія:</label>
                     <select name="categoryId" value={vacancy.categoryId} onChange={handleChange} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-400 focus:border-sky-400 block w-full p-2 hover:bg-gray-100">
                     { categories.map( category => 
-                        (<option value={category.id}> {category.categoryName} </option> ))}
+                        (<option key={category.id} value={category.id}> {category.categoryName} </option> ))}
                     </select>                
                 </div>
                 <div className="grid gap-6 mb-6 md:grid-cols-2">

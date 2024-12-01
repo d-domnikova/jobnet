@@ -7,6 +7,10 @@ import ServiceIcon from "src/icons/ServiceIcon.jsx";
 import BlogIcon from "src/icons/BlogIcon.jsx";
 import Review from "src/components/Review.jsx";
 
+import { useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+
 const UserProfilePage = ({
                              name,
                              specialization,
@@ -105,6 +109,19 @@ const UserProfilePage = ({
         alignItems: 'center'
     };
 
+    const navigate = useNavigate();
+    const { id } = useParams();
+
+    const [user, setUser] = useState([]);
+    useEffect(() => {
+       axios.get(`https://localhost:6969/api/users/${id}`)
+       .then(response => {
+            setUser(response.data);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    }, []);
 
     return (
         <div>
@@ -114,12 +131,12 @@ const UserProfilePage = ({
                     {/* Left Column */}
                     <div style={leftColumnStyle}>
                         <div style={headerStyle}>
-                            {name}, {specialization}
+                            {user.firstName} {user.lastName}, {specialization}
                         </div>
                         <div>
-                            {city}, {region}
+                            {user.address} область
                         </div>
-                        <div>{phone}</div>
+                        <div>{user.phoneNumber}</div>
                         <div style={contactRowStyle}>
                             <Inst width={20} height={20} color="#6f6f6f"/>
                             <Telegram width={20} height={20} color="#6f6f6f"/>
@@ -138,15 +155,15 @@ const UserProfilePage = ({
 
                 {/* Buttons Section */}
                 <div style={buttonContainerStyle}>
-                    <button style={buttonStyle} onClick="/user/:id/resumes">
+                    <button style={buttonStyle} onClick={() => navigate(`/user/${id}/resumes`)}>
                         <span style={{marginRight: '20px'}}><CVIcon/></span>
                         Резюме
                     </button>
-                    <button style={buttonStyle} onClick="/user/:id/services">
+                    <button style={buttonStyle} onClick={() => navigate(`/user/${id}/services`)}>
                         <span style={{marginRight: '20px'}}><ServiceIcon style={{marginRight: '20px'}}/></span>
                         Послуги
                     </button>
-                    <button style={buttonStyle} onClick="/user/:id/blog">
+                    <button style={buttonStyle} onClick={() => navigate(`/user/${id}/blog`)}>
                         <span style={{marginRight: '20px'}}><BlogIcon style={{marginRight: '20px'}}/></span>
                         Блог
                     </button>

@@ -63,7 +63,7 @@ export default function AllResumes(){
             </div>  
             <div className="grid grid-cols-1 gap-6 justify-right md:basis-2/3">
                 {resumes.map((resume) => (
-                    <Resume key={resume.id} id={resume.id} />
+                    <Resume key={resume.id} id={resume.id} title={resume.title} content={`${resume.content.slice(0, 330)}...`}/>
                 ))}
             </div>  
             </div>

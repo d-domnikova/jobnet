@@ -70,7 +70,8 @@ const AllVacancies = () => {
             <div className="grid grid-cols-1 gap-6 justify-right md:basis-2/3">
                 {vacancies.map((vacancy) => (
                     <Vacancy key={vacancy.id} 
-                             id={vacancy.id} title={vacancy.title} salary={vacancy.salary} location={vacancy.location} description={`${vacancy.description.slice(0, 330)}...`} />
+                             id={vacancy.id} title={vacancy.title} salary={vacancy.salary} location={vacancy.location} 
+                             description={`${vacancy.description.slice(0, 330)}...`} companyName={vacancy.companyName}/>
                 ))}
             </div>  
             </div>

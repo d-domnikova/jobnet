@@ -20,7 +20,7 @@ export default function Service(props){
                 <h5 className="mb-2 text-2xl pt-4 font-bold tracking-tight text-gray-900 hover:underline">{props.serviceName}</h5>
                 <p className="font-semibold text-gray-900 py-1">{props.price} грн/год</p>
                 <p className="font-semibold text-gray-900 py-1 ">{props.firstName} {props.lastName}</p>
-                <p className="font-semibold text-gray-900 py-1">{props.location}</p>
+                <p className="font-semibold text-gray-900 py-1">{props.location} область</p>
                 <div className="md:flex space-x-4">
                 <p className="font-semibold text-gray-900 py-1 pb-2">{props.phoneNumber}</p>
                 <div className="md:pt-1.5 flex space-x-3 mb-2">

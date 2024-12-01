@@ -5,6 +5,8 @@ import UserInfoIcon from "src/icons/UserInfoIcon.jsx";
 import BlogIcon from "src/icons/BlogIcon.jsx";
 import Quit from "src/icons/Quit.jsx";
 
+import { useNavigate } from "react-router-dom";
+
 const UserProfile = () => {
     const containerStyle = {
         display: 'grid',
@@ -36,10 +38,12 @@ const UserProfile = () => {
         { text: 'Вийти', icon: <Quit/>, href: "/"},
     ];
 
+    const navigate = useNavigate();
+
     return (
         <div style={containerStyle}>
             {items.map((item, index) => (
-                <button key={index} style={cellStyle} onClick={item.href}>
+                <button key={index} style={cellStyle} onClick={() => {item.text === "Вийти" && localStorage.clear(); navigate(item.href)}}>
                     {item.icon}
                     {item.text}
                 </button>

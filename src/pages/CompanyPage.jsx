@@ -1,8 +1,11 @@
+import { useNavigate, useParams } from "react-router-dom";
+
 import PropTypes from "prop-types";
 import Verified from "src/icons/Verified.jsx";
 import Info from "src/icons/Info.jsx";
 import VacancyIcon from "src/icons/VacancyIcon.jsx";
 import BlogIcon from "src/icons/BlogIcon.jsx";
+
 
 const CompanyPage = ({
                          name,
@@ -81,6 +84,8 @@ const CompanyPage = ({
 
     };
 
+    const navigate = useNavigate();
+    const { id } = useParams();
 
     return (
         <>
@@ -104,15 +109,15 @@ const CompanyPage = ({
             </div>
             {/* Buttons */}
             <div style={buttonsContainerStyle}>
-                <button style={buttonStyle} onClick={website}>
+                <button style={buttonStyle} onClick={() => window.open(website, "_blank", "noreferrer")}>
                     <span style={{marginRight: '20px'}}><Info width={'40px'} height={'40px'}/></span>
                     Про компанію
                 </button>
-                <button style={buttonStyle} onClick="/company/:id/vacancies">
+                <button style={buttonStyle} onClick={() => navigate(`/company/${id}/vacancies`)}>
                     <span style={{marginRight: '20px'}}><VacancyIcon width={'50px'} height={'50px'}/></span>
                     Вакансії
                 </button>
-                <button style={buttonStyle} onClick="/company/:id/blog" >
+                <button style={buttonStyle} onClick={() => navigate(`/company/${id}/blog`)} >
                     <span style={{marginRight: '20px'}}><BlogIcon width={'40px'} height={'40px'}/></span>
                     Блог
                 </button>
@@ -132,7 +137,7 @@ CompanyPage.propTypes = {
 CompanyPage.defaultProps = {
     name: "Company Name",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec volutpat cursus ex sit amet lobortis. Nulla malesuada ullamcorper leo, ac porttitor dui tempor mattis.",
-    website: "www.company-website.com",
+    website: "https://www.company-website.com",
     bannerColor: "#f4f4f4",
     verified: true,
 };

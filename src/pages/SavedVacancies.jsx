@@ -9,7 +9,7 @@ const SavedVacancies = () => {
 
     useEffect(() => {
         // Fetch vacancies from the backend
-        axios.get("https://localhost:6969/api/vacancies") // Replace with your actual API endpoint
+        axios.get("https://localhost:6969/api/SavedJob") // Replace with your actual API endpoint
             .then(response => {
                 setVacancies(response.data);
                 setLoading(false);
