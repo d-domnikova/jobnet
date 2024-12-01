@@ -30,7 +30,6 @@ import CreatedCVs from "src/pages/CreatedCVs.jsx";
 import ModeratorMain from "src/pages/ModeratorMain.jsx";
 import PostForm from "src/pages/forms/PostForm.jsx";
 import UserCVs from "src/pages/UserCVs.jsx";
-import Complaint from "src/components/Complaint.jsx";
 import WarningPage from "src/pages/WarningPage.jsx";
 import ModeratorViewPage from "src/pages/ModeratorViewPage.jsx";
 
@@ -45,9 +44,13 @@ export default function App() {
 
           <Routes>
             <Route path="/" element={<Landing/>}/>
-            {!isLoggedIn && (
-              <Route path='/signup/:role' element={<SignUp/>}/>
-            )}
+            {/*{!isLoggedIn && (*/}
+            {/*  <Route path='/signup/:role' element={<SignUp/>}/>*/}
+            {/*)}*/}
+
+              <Route path="/moderator/main" element={<ModeratorMain/>}/>
+              <Route path="/moderator/complaint/:id" element={<ModeratorViewPage/>}/>
+              <Route path="/moderator/complaint/warning/:id" element={<WarningPage/>}/>
 
             <Route path="/vacancies" element={<AllVacancies/>}/>
             <Route path="/services" element={<AllServices/>}/>
@@ -68,8 +71,8 @@ export default function App() {
             <Route path="/company/:id/vacancies" element={<CompanyVacancies/>}/>
             <Route path="/company/:id/blog" element={<PersonalBlog/>}/>
 
-            <Route element={<ProtectedRoute/>}>
-              <Route path='/signup/:role' element={<Navigate to="/"/>}/>
+            {/*<Route element={<ProtectedRoute/>}>*/}
+            {/*<Route path='/signup/:role' element={<Navigate to="/"/>}/>*/}
 
               {userRole === "User" && (
                 <>
@@ -120,7 +123,7 @@ export default function App() {
                   <Route path="/moderator/complaint/warning" element={<WarningPage/>}/>
                 </>
               )}
-            </Route>
+            {/*</Route>*/}
             
             <Route path="*" element={<NoPage/>}/>
             </Routes>
