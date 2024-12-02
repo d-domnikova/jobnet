@@ -1,11 +1,28 @@
 import BlogPost from "src/components/BlogPost.jsx";
 import Pagination from "src/components/pageComponents/Pagination.jsx";
 import Tag from "src/components/Tag.jsx";
-
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
 export default function Blog() {
+    const { userId } = useParams(); // Retrieve userId from URL params
+    const [posts, setPosts] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        axios.get("https://localhost:6969/api/posts") // Replace with your actual API endpoint
+        .then(response => {
+            setPosts(response.data);
+            setLoading(false);
+        })
+        .catch(error => {
+            console.error("Error fetching services:", error);
+            setError("Failed to load services.");
+            setLoading(false);
+        });
+    }, []);
+
     const containerStyle = {
         display: 'grid',
         gridTemplateColumns: 'repeat(3, auto)', // Three columns
@@ -15,41 +32,39 @@ export default function Blog() {
     };
 
     const boxStyle = {
-
         padding: '20px',
         textAlign: 'center',
         justifyContent: 'center'
     };
 
-    const tagStyle={
+    const tagStyle = {
         width: '300px',
         marginBottom: '40px',
         marginTop: '40px',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-    }
+    };
 
-    const searchBar =
-    {
+    const searchBar = {
         backgroundColor: '#ffffff',
-        height:'70px',
-        width:'300px',
-        borderRadius:'30px',
-        textAlign:'center',
-        fontSize:'23px',
+        height: '70px',
+        width: '300px',
+        borderRadius: '30px',
+        textAlign: 'center',
+        fontSize: '23px',
         verticalAlign: "middle",
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         marginBottom: '40px',
-    }
+    };
 
-    const div1Style = {gridColumn: 1, gridRow: 1};
-    const div2Style = {gridColumn: 2, gridRow: 1};
-    const div3Style = {gridColumn: 3, gridRow: 1};
-    const div4Style = {gridColumn: 1, gridRow: 2};
-    const div5Style = {gridColumn: 2, gridRow: 2};
+    const div1Style = { gridColumn: 1, gridRow: 1 };
+    const div2Style = { gridColumn: 2, gridRow: 1 };
+    const div3Style = { gridColumn: 3, gridRow: 1 };
+    const div4Style = { gridColumn: 1, gridRow: 2 };
+    const div5Style = { gridColumn: 2, gridRow: 2 };
     const div6Style = {
         gridColumn: 'span 2', // Spans across two columns
         gridRow: 3,
@@ -57,34 +72,32 @@ export default function Blog() {
         textAlign: 'center',
     };
 
-    const [posts, setPosts] = useState([]);
-
-    useEffect(() => {
-      axios.get('https://localhost:6969/api/posts')
-        .then(response => {
-          setPosts(response.data);
-        })
-        .catch(error => {
-          console.error(error);
-        });  
-      }, []);
-      
+    if (loading) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <div style={containerStyle}>
-            <div style={{...boxStyle, ...div1Style}}>
-                <BlogPost/>
-            </div>
-            <div style={{...boxStyle, ...div2Style}}><BlogPost/></div>
-            <div style={{...boxStyle, ...div3Style}}>
+            {posts.slice(0, 4).map((post, index) => (
+                <div
+                    key={post.postId}
+                    style={{
+                        ...boxStyle,
+                        ...(index === 1 ? div2Style : index === 0 ? div1Style : index === 2 ? div5Style : div4Style),
+                    }}
+                >
+                    <BlogPost title={post.title} id={post.id} content={`${post.content.slice(0, 70)}...`} />
+                </div>
+            ))}
+            <div style={{ ...boxStyle, ...div3Style }}>
                 <div style={searchBar}>Пошук постів</div>
-                <div style={tagStyle}><Tag text="category"/></div>
-                <div style={tagStyle}><Tag text="category"/></div>
-                <div style={tagStyle}><Tag text="category"/></div>
+                <div style={tagStyle}><Tag text="category" /></div>
+                <div style={tagStyle}><Tag text="category" /></div>
+                <div style={tagStyle}><Tag text="category" /></div>
             </div>
-            <div style={{...boxStyle, ...div4Style}}><BlogPost/></div>
-            <div style={{...boxStyle, ...div5Style}}><BlogPost/></div>
-            <div style={{...boxStyle, ...div6Style}}><Pagination/></div>
+            <div style={{ ...boxStyle, ...div6Style }}>
+                <Pagination />
+            </div>
         </div>
     );
 }

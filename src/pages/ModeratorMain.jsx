@@ -12,7 +12,9 @@ const ModeratorMain = () => {
 
     useEffect(() => {
         axios
-            .get("https://localhost:6969/api/complaints")
+            .get("https://localhost:6969/api/complaints", 
+                { headers: {"Authorization" : `Bearer ${localStorage.getItem('token')}`}}
+            )
             .then((response) => setComplaints(response.data))
             .catch((error) => console.error("Error fetching complaints:", error));
     }, []);
@@ -65,27 +67,27 @@ const ModeratorMain = () => {
                         onClick={() => handleViewComplaint(complaint.id)}
                     />
                 ))}
-                {/* Example Complaint */}
-                {/*<Complaint*/}
-                {/*    key={1}*/}
-                {/*    complaint={{*/}
-                {/*        complainant: { name: "name" },*/}
-                {/*        description: "teeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeext",*/}
-                {/*        status: "Pending",*/}
-                {/*        submittedAt: "2024-12-01T10:00:00Z",*/}
-                {/*        targetPost: {*/}
-                {/*            header: "Sample Post Header",*/}
-                {/*            username: "Name Surname",*/}
-                {/*            likes: 123,*/}
-                {/*            comments: 123,*/}
-                {/*            body: "Sample post content for debugging purposes.",*/}
-                {/*            tags: ["tag1"],*/}
-                {/*            avatar: "",*/}
-                {/*            bannerImage: "",*/}
-                {/*        },*/}
-                {/*    }}*/}
-                {/*    onClick={() => handleViewComplaint(1)}*/}
-                {/*/>*/}
+                 {/*Example Complaint */}
+                <Complaint
+                    key={1}
+                    complaint={{
+                        complainant: { name: "name" },
+                        description: "teeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeext",
+                        status: "Pending",
+                        submittedAt: "2024-12-01T10:00:00Z",
+                        targetPost: {
+                            header: "Sample Post Header",
+                            username: "Name Surname",
+                            likes: 123,
+                            comments: 123,
+                            body: "Sample post content for debugging purposes.",
+                            tags: ["tag1"],
+                            avatar: "",
+                            bannerImage: "",
+                        },
+                    }}
+                    onClick={() => handleViewComplaint(1)}
+                />
             </div>
 
             <div className="message-content">

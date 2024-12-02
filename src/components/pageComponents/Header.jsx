@@ -38,7 +38,7 @@ export default function Header({isLoggedIn, userRole}){
                                             <a href="/company/saved-resumes" className="block hover:bg-gray-100 md:hover:bg-transparent md:hover:text-sky-600">Збереженні резюме</a>
                                         </>
                                     )}
-                                    <a href={userRole === "User" ? "/user/personal-info" : "/company/personal-info"} className="pb-2 block hover:bg-gray-100 md:hover:bg-transparent md:hover:text-sky-600 border-b border-gray-200">Налаштування</a>
+                                    <a href={userRole === "User" ? "/user/personal-info" : "/company"} className="pb-2 block hover:bg-gray-100 md:hover:bg-transparent md:hover:text-sky-600 border-b border-gray-200">Налаштування</a>
                                     <a href="/" onClick={logout} className="block hover:bg-gray-100 md:hover:bg-transparent md:hover:text-sky-600">Вийти</a>
                                 </PopoverPanel>
                                 </Popover>

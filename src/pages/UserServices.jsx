@@ -3,12 +3,13 @@ import axios from 'axios';
 import Service from "src/components/Service.jsx";
 import AddButton from "src/components/AddButton.jsx";
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const UserServices = () => {
     const [services, setServices] = useState([]);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
+    const location = useLocation();
 
     useEffect(() => {
         // Fetch services from backend API
@@ -33,7 +34,7 @@ const UserServices = () => {
     };
 
     const buttonStyle = {
-        display:  (localStorage.getItem("userId"))  === services.at(0).userId ? "block" : "none",
+        display: location.pathname == "/user/my-services" ? "block" : "none",
     }
 
     const navigate = useNavigate();

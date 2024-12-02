@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function SignIn(){
     const [open, setOpen] = useState(false);
+    const navigate = useNavigate();
     
     const [login, setLoginData] = useState({
         email: "",
@@ -35,6 +36,7 @@ export default function SignIn(){
             ).then((response) => 
                 localStorage.setItem("userRole", response.data.roleName))
             setOpen(false);
+            localStorage.getItem("userRole") === "Moderator" && navigate("/moderator/main");
           });
     }
   

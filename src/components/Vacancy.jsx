@@ -13,10 +13,12 @@ export default function Vacancy(props){
 
   const location = useLocation();
   const [companyName, setCompanyName] = useState('');
+  const [savedVacancies, setSavedVacancies] = useState([]);
 
   useEffect(() => {
      axios.get(`https://localhost:6969/api/jobs/${props.id}`)
      .then(response => {
+        setSavedVacancies(response.data)
           axios.get(`https://localhost:6969/api/users/${response.data.userId}`)
           .then(response => {
             setCompanyName(response.data.firstName); });
@@ -39,9 +41,9 @@ export default function Vacancy(props){
         <div className="block max-w-4xl h-fit px-10 py-4 bg-white border border-gray-200 rounded-3xl shadow hover:bg-gray-100">
         <div className="relative flex justify-between">
           <a href={"/vacancies/"+ props.id} className="block">
-            <h5 className="mb-2 text-xl sm:text-2xl pt-4 font-bold tracking-tight text-gray-900 hover:underline">{props.title}</h5>
-            <p className="font-semibold sm:text-lg text-gray-900 py-1">{props.salary} грн</p>
-            <p className="font-semibold sm:text-lg text-gray-900 py-1">{props.location}</p>
+            <h5 className="mb-2 text-xl sm:text-2xl pt-4 font-bold tracking-tight text-gray-900 hover:underline">{props.title != undefined ? props.title : savedVacancies.title}</h5>
+            <p className="font-semibold sm:text-lg text-gray-900 py-1">{props.salary != undefined ? props.salary : savedVacancies.salary } грн</p>
+            <p className="font-semibold sm:text-lg text-gray-900 py-1">{props.location != undefined ? props.location : savedVacancies.location}</p>
             <div className="flex space-x-2">
               <p className="font-semibold sm:text-lg  text-gray-900 py-1 pb-4">{companyName}</p>
               <div className="pt-2 sm:pt-2.5">
@@ -57,7 +59,7 @@ export default function Vacancy(props){
                   <Edit /></a>
                </>  : <ReportForm id={props.id}/>}
       </div>
-      <p className="text-base/2 text-gray-600">{props.description}</p>
+      <p className="text-base/2 text-gray-600">{props.description != undefined ? props.description : savedVacancies.description != undefined && `${savedVacancies.description.slice(0, 330)}...`}</p>
       <div className="relative flex justify-between py-6">
       <div className="grid gap-2 grid-cols-2 lg:grid-cols-4">
         <Tag url="#" text="Назва тегу"/>

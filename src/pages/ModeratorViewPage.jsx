@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Post from "src/pages/Post.jsx";
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import Post from "src/pages/Post.jsx";
-import {useEffect, useState} from "react";
 
 const ComplaintDetailsPage = () => {
     const [targetPost, setTargetPost] = useState(null);

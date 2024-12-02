@@ -9,7 +9,8 @@ const SavedVacancies = () => {
 
     useEffect(() => {
         // Fetch vacancies from the backend
-        axios.get("https://localhost:6969/api/SavedJob") // Replace with your actual API endpoint
+        axios.get("https://localhost:6969/api/SavedJob",  
+            { headers: {"Authorization" : `Bearer ${localStorage.getItem('token')}`}}) // Replace with your actual API endpoint
             .then(response => {
                 setVacancies(response.data);
                 setLoading(false);
@@ -38,11 +39,8 @@ const SavedVacancies = () => {
             ) : (
                 vacancies.map((vacancy) => (
                     <Vacancy
-                        key={vacancy.id}
-                        id={vacancy.id}
-                        title={vacancy.title}
-                        company={vacancy.company}
-                        description={vacancy.description}
+                        key={vacancy.jobId}
+                        id={vacancy.jobId}
                     />
                 ))
             )}

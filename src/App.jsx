@@ -44,9 +44,13 @@ export default function App() {
 
           <Routes>
             <Route path="/" element={<Landing/>}/>
-            {/*{!isLoggedIn && (*/}
-            {/*  <Route path='/signup/:role' element={<SignUp/>}/>*/}
-            {/*)}*/}
+            {!isLoggedIn && (
+              <>
+              <Route path='/signup/:role' element={<SignUp/>}/>
+              <Route path="/service/:action/:id?" element={<Navigate to="/signup/user"/>}/>
+              <Route path="/resume/:action/:id?" element={<Navigate to="/signup/user"/>}/>
+              </>
+            )}
 
               <Route path="/moderator/main" element={<ModeratorMain/>}/>
               <Route path="/moderator/complaint/:id" element={<ModeratorViewPage/>}/>
@@ -71,8 +75,9 @@ export default function App() {
             <Route path="/company/:id/vacancies" element={<CompanyVacancies/>}/>
             <Route path="/company/:id/blog" element={<PersonalBlog/>}/>
 
-            {/*<Route element={<ProtectedRoute/>}>*/}
-            {/*<Route path='/signup/:role' element={<Navigate to="/"/>}/>*/}
+
+            <Route element={<ProtectedRoute/>}>
+            <Route path='/signup/:role' element={<Navigate to="/"/>}/>
 
               {userRole === "User" && (
                 <>
@@ -123,7 +128,7 @@ export default function App() {
                   <Route path="/moderator/complaint/warning" element={<WarningPage/>}/>
                 </>
               )}
-            {/*</Route>*/}
+            </Route>
             
             <Route path="*" element={<NoPage/>}/>
             </Routes>
