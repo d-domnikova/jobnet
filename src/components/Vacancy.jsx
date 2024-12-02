@@ -6,11 +6,25 @@ import ReportForm from "./modals/ReportForm";
 import DeleteModal from "./modals/DeleteModal";
 
 import { useLocation } from "react-router-dom";
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 export default function Vacancy(props){
 
   const location = useLocation();
+  const [companyName, setCompanyName] = useState('');
+
+  useEffect(() => {
+     axios.get(`https://localhost:6969/api/jobs/${props.id}`)
+     .then(response => {
+          axios.get(`https://localhost:6969/api/users/${response.data.userId}`)
+          .then(response => {
+            setCompanyName(response.data.firstName); });
+      })
+      .catch(error => {
+          console.error(error);
+      });
+  }, []);
   
   const saveVacancy = (id) =>{
     const data = {
@@ -29,7 +43,7 @@ export default function Vacancy(props){
             <p className="font-semibold sm:text-lg text-gray-900 py-1">{props.salary} грн</p>
             <p className="font-semibold sm:text-lg text-gray-900 py-1">{props.location}</p>
             <div className="flex space-x-2">
-              <p className="font-semibold sm:text-lg  text-gray-900 py-1 pb-4">{props.companyName}</p>
+              <p className="font-semibold sm:text-lg  text-gray-900 py-1 pb-4">{companyName}</p>
               <div className="pt-2 sm:pt-2.5">
               <Verified color="#38bdf8"/>
               </div>

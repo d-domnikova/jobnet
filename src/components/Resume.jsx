@@ -7,22 +7,36 @@ import Edit from "../icons/Edit";
 import ReportForm from "./modals/ReportForm";
 import DeleteModal from "./modals/DeleteModal";
 
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 export default function Resume(props){
 
-  const { id } = useParams();
   const location = useLocation();
+
+  const [user, setUser] = useState([]);
+  useEffect(() => {
+     axios.get(`https://localhost:6969/api/resumes/${props.id}`)
+     .then(response => {
+          axios.get(`https://localhost:6969/api/users/${response.data.userId}`)
+          .then(response => {
+            setUser(response.data); });
+      })
+      .catch(error => {
+          console.error(error);
+      });
+  }, []);
 
     return(
         <div className="block max-w-4xl h-fit px-12 py-6 bg-white border border-gray-200 rounded-2xl shadow hover:bg-gray-100">
           <div className="relative flex justify-between">
             <a href={"/resumes/"+ props.id} className="block">
                 <h5 className="mb-2 text-2xl pt-4 font-bold tracking-tight text-gray-900 hover:underline">{props.title}</h5>
-                <p className="font-semibold text-gray-900 py-1 ">{props.firstName} {props.lastName}</p>
-                <p className="font-semibold text-gray-900 py-1">{props.location}</p>
+                <p className="font-semibold text-gray-900 py-1 ">{user.firstName} {user.lastName}</p>
+                <p className="font-semibold text-gray-900 py-1">{user.address} область</p>
                 <div className="md:flex space-x-4">
-                <p className="font-semibold text-gray-900 py-1 pb-2">{props.phoneNumber}</p>
+                <p className="font-semibold text-gray-900 py-1 pb-2">{user.phoneNumber}</p>
                 <div className="md:pt-1.5 flex space-x-3 mb-2">
                     <Viber width="22" height="22" color="black"/>
                     <Telegram width="24" height="24" color="black"/>

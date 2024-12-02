@@ -71,7 +71,7 @@ const AllVacancies = () => {
                 {vacancies.map((vacancy) => (
                     <Vacancy key={vacancy.id} 
                              id={vacancy.id} title={vacancy.title} salary={vacancy.salary} location={vacancy.location} 
-                             description={`${vacancy.description.slice(0, 330)}...`} companyName={vacancy.companyName}/>
+                             description={`${vacancy.description.slice(0, 330)}...`}/>
                 ))}
             </div>  
             </div>

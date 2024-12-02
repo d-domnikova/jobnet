@@ -11,7 +11,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-export default function ResumePage(props){
+export default function ResumePage(){
   const [resume, setResume] = useState([]);
   const [user, setUser] = useState([]);
   const { id } = useParams();

@@ -1,4 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from 'axios';
 
 import PropTypes from "prop-types";
 import Verified from "src/icons/Verified.jsx";
@@ -86,6 +88,16 @@ const CompanyPage = ({
 
     const navigate = useNavigate();
     const { id } = useParams();
+    const [userInfo, setUserInfo] = useState([]);
+    useEffect(() => {
+        axios.get(`https://localhost:6969/api/users/${id}`)
+        .then(response => {
+            setUserInfo(response.data);
+         })
+         .catch(error => {
+             console.error(error);
+         });
+    }) 
 
     return (
         <>
@@ -97,7 +109,7 @@ const CompanyPage = ({
                 {/* Company Info */}
 
                 <div style={headerStyle}>
-                    {name}
+                    {userInfo.firstName}
                     <Verified width={15} height={15} color={'#000000'}/>
                 </div>
                 <div style={descriptionStyle}>{description}</div>

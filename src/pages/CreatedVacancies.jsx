@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import Vacancy from "src/components/Vacancy.jsx";
 import AddButton from "src/components/AddButton.jsx";
+import { useNavigate } from 'react-router-dom';
 
 const SavedVacancies = () => {
     const [vacancies, setVacancies] = useState([]);
@@ -30,6 +31,7 @@ const SavedVacancies = () => {
         padding: "20px",
     };
 
+    const navigate = useNavigate()
     return (
         <div>
             <div style={containerStyle}>
@@ -49,7 +51,7 @@ const SavedVacancies = () => {
                     ))
                 )}
             </div>
-            <AddButton onClick="/vacancy/:action/:id?"/>
+            <AddButton onClick={() => navigate("/vacancy/create")}/>
         </div>
     );
 };
